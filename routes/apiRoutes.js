@@ -1,26 +1,32 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    // Get all examples
-    app.get("/api/examples", function(req, res) {
-        db.Example.findAll({}).then(function(dbExamples) {
-            res.json(dbExamples);
-        });
+
+    app.get("/api/snippets", (req, res) => {
+        //get all snippets
     });
 
-    // Create a new example
-    app.post("/api/examples", function(req, res) {
-        db.Example.create(req.body).then(function(dbExample) {
-            res.json(dbExample);
-        });
+    app.get("/api/snippets/:author", (req, res) => {
+        //get all snippets by author
     });
 
-    // Delete an example by id
-    app.delete("/api/examples/:id", function(req, res) {
-        db.Example.destroy({ where: { id: req.params.id } }).then(function(
-            dbExample
-        ) {
-            res.json(dbExample);
-        });
+    app.get("/api/snippets/:language", (req, res) => {
+        //get all snippets by langage
+    });
+
+    app.get("/api/snippets/:sort", (req, res) => {
+        //get all snippets, sort by (date/hot/most likes)
+    })
+
+    app.post("/api/snippets", (req, res) => {
+
+    });
+
+    app.put("/api/snippets/:id", (req, res) => {
+        //update snippet where id = ?
+    });
+
+    app.delete("/api/snippets/:id", (req, res) => {
+        //delete snippet where id = ?
     });
 };
