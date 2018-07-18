@@ -10,14 +10,14 @@ module.exports = function(app) {
         });
     });
 
-     // Get a user's snippets
-     app.get("/api/users/:id", function(req, res) {
+    // Get a user's snippets
+    app.get("/api/users/:id", function(req, res) {
         db.User.findOne({
             attributes: [username],
             where: {
                 id: req.params.id
-              },
-              include: ["Snippets"]
+            },
+            include: ["Snippets"]
         }).then(function(user) {
             res.json(user);
         });
@@ -38,7 +38,7 @@ module.exports = function(app) {
         db.User.destroy(
             { 
                 where: { id: req.params.id } 
-            }).then(function(user) {
+            }).then(function() {
             res.end();
         });
     });
