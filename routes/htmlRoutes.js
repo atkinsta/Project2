@@ -6,10 +6,10 @@ module.exports = function(app) {
         if (req.user) {
             res.redirect("/home");
         }
-        res.render("signup");
+        res.render("login");
     });
 
-    app.get("login", (req, res) => {
+    app.get("/login", (req, res) => {
         if (req.user) {
             res.redirect("/home");
         }
