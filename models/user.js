@@ -26,7 +26,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
+    
     // add associations
+
+
     User.prototype.validPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
     };
