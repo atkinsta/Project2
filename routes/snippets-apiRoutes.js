@@ -46,6 +46,16 @@ module.exports = function (app) {
         });
     });
 
+    app.post("/api/snippets/newComment", (req, res) => {
+        db.Comment.create({
+            comment: req.body.comment,
+            user: req.body.username,
+            SnippetId: req.body.SnippetId
+        }).then(newComment => {
+            res.json(newComment);
+        });
+    });
+
     app.put("/api/snippets/:id", (req, res) => {
         //update snippet where id = ?
         db.Snippet.update(

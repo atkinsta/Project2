@@ -7,8 +7,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notNull: true
+                len: [1, 255]
             }
+        },
+        user: {
+            type: DataTypes.STRING
         }
     });
 
@@ -18,13 +21,7 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
-        Comment.belongsTo(models.User, {
-            foriegnKey: {
-                allowNull: false
-            }
-        });
     };
-    // add associations
 
     return Comment;
 };
