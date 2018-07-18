@@ -7,7 +7,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notNull: true,
                 max: 50
             }
         },
@@ -15,7 +14,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notNull: true,
                 max: 15
             }
         },
@@ -23,16 +21,12 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                notNull: true,
                 max: 500
             }
         },
         description: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                notNull: true
-            }
         }
     });
 
