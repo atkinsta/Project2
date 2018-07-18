@@ -36,8 +36,16 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-
-    // add associations
+    Snippet.associate = function(models) {
+        Snippet.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Snippet.hasMany(models.Comment, {
+            onDelete: "cascade"
+        });
+    };
 
     return Snippet;
 };

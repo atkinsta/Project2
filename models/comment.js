@@ -12,6 +12,18 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
+    Comment.associate = function(models) {
+        Comment.belongsTo(models.Snippet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Comment.belongsTo(models.User, {
+            foriegnKey: {
+                allowNull: false
+            }
+        });
+    };
     // add associations
 
     return Comment;
