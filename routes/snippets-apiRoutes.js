@@ -5,7 +5,8 @@ module.exports = function (app) {
     app.get("/api/snippets", (req, res) => {
         //get all snippets
         db.Snippet.findAll({
-            include: [db.Comment]
+            include: [
+                {model: db.Comment, include: [db.User]}]
         }).then(allSnippets => {
             res.json(allSnippets);
         });
