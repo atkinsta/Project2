@@ -15,7 +15,7 @@ module.exports = function (app) {
         //get all snippets by author
         db.Snippet.findAll({
             where: {
-                username = req.params.username
+                username: req.params.username
             }
         }).then(author => {
             res.json(author);
@@ -26,7 +26,7 @@ module.exports = function (app) {
         //get all snippets by langage
         db.Snippet.findAll({
             where: {
-                language = req.params.language
+                language: req.params.language
             }
         }).then(language => {
             res.json(language);
@@ -41,8 +41,7 @@ module.exports = function (app) {
     // });
 
     app.post("/api/snippets", (req, res) => {
-        db.Snippet.create(req.body)
-        .then(newSnippet => {
+        db.Snippet.create(req.body).then(newSnippet => {
             res.json(newSnippet);
         });
     });
@@ -51,11 +50,11 @@ module.exports = function (app) {
         //update snippet where id = ?
         db.Snippet.update(
             req.body,
-        {
-            where: {
-                id: req.params.id
-              }
-        }).then(updated => {
+            {
+                where: {
+                    id: req.params.id
+                }
+            }).then(updated => {
             res.json(updated);
         });
     });
@@ -65,9 +64,9 @@ module.exports = function (app) {
         db.Snippet.destroy({
             where: {
                 id: req.params.id
-              }
+            }
         }).then(() => {
             res.end();
         });
-    })
+    });
 };

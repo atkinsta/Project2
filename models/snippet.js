@@ -39,5 +39,5 @@ module.exports = function (sequelize, DataTypes) {
 
     // add associations
 
-    return Post;
+    return Snippet;
 };
