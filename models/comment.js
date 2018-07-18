@@ -9,14 +9,16 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1, 255]
             }
-        },
-        user: {
-            type: DataTypes.STRING
         }
     });
 
     Comment.associate = function(models) {
         Comment.belongsTo(models.Snippet, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Comment.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }

@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.get("/api/snippets", (req, res) => {
         //get all snippets
         db.Snippet.findAll({
-
+            include: [db.Comment]
         }).then(allSnippets => {
             res.json(allSnippets);
         });
@@ -13,10 +13,15 @@ module.exports = function (app) {
 
     app.get("/api/snippets/:username", (req, res) => {
         //get all snippets by author
-        db.Snippet.findAll({
+        db.User.findAll({
             where: {
                 username: req.params.username
-            }
+            },
+            include: [ //includes both snippets from that author and their comments, this will be useful later.
+                {model: db.Snippet, include: [
+                    {model: db.Comment, include: [db.User]}
+                ]}
+            ]
         }).then(author => {
             res.json(author);
         });
@@ -46,12 +51,8 @@ module.exports = function (app) {
         });
     });
 
-    app.post("/api/snippets/newComment", (req, res) => {
-        db.Comment.create({
-            comment: req.body.comment,
-            user: req.body.username,
-            SnippetId: req.body.SnippetId
-        }).then(newComment => {
+    app.post("/api/comments", (req, res) => {
+        db.Comment.create(req.body).then(newComment => {
             res.json(newComment);
         });
     });
