@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
 
     app.get("/api/snippets", (req, res) => {
-        //get all snippets
+        
     });
 
     app.get("/api/snippets/:author", (req, res) => {
