@@ -2,7 +2,7 @@
 // title, language, code, description...
 
 module.exports = function (sequelize, DataTypes) {
-    var Post = sequelize.define("Post", {
+    var Snippet = sequelize.define("Snippet", {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
