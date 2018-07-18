@@ -10,16 +10,12 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             unique: true,
             validate: {
-                notNull: true,
-                max: 25
+                len: [1, 25]
             }
         },
         fullName: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                notNull: true,
-            }
         },
         password: {
             type: DataTypes.STRING,
@@ -27,7 +23,12 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     
-    // add associations
+    User.associate = function(models) {
+        User.hasMany(models.Snippet, {
+            onDelete: "cascade"
+        });
+    };
+    
 
 
     User.prototype.validPassword = function(password) {
