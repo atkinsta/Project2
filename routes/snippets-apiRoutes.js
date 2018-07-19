@@ -5,10 +5,18 @@ module.exports = function (app) {
     app.get("/api/snippets", (req, res) => {
         //get all snippets
         db.Snippet.findAll({
-            include: [
+            include: [ db.User,
                 {model: db.Comment, include: [db.User]}]
         }).then(allSnippets => {
             res.json(allSnippets);
+        });
+    });
+    
+    app.get("/test", (req, res) => {
+        db.Snippet.findAll({
+            include: [{all: true}]
+        }).then(data => {
+            res.render("index", {snippets: data});
         });
     });
 
