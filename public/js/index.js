@@ -6,7 +6,7 @@ $(document).ready(function() {
     $(document).on("click", "#submitSnippet", function() {
         let newSnippet = {
             title: $("#title").val().trim(),
-            language: $("#langDrop").val(),
+            language: $("#myDropdown").val(),
             codeBlock: $("#codeBlock").val(),
             description: $("#description").val(),
         };

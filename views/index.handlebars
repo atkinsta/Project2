@@ -1,33 +1,107 @@
-<div id="home">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2">
-                <h1>{{msg}}</h1>
-                <h2>This is our Home Page!</h2>
-                <form class="clearfix mb-4" action="POST">
-                    <div class="form-group">
-                        <label for="example-text">Example Text</label>
-                        <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-                    </div>
-                    <div class="form-group">
-                        <label for="example-description">Example Description</label>
-                        <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-                    </div>
-                    <button id="submit" class="btn btn-primary float-right">Submit</button>
-                </form>
-                <h3>Examples:</h3>
-                <ul id="example-list" class="list-group">
-                    {{#each examples}}
-                    <li data-id="{{this.id}}" class="list-group-item">
-                        <a href="example/{{this.id}}">{{this.text}}</a>
-                        <button class="btn btn-danger float-right delete">ｘ</button>
-                    </li>
-                    {{/each}}
-                </ul>
+<div id="modal">
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Make a post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="clearfix mb-4" method="POST" action="/home">
+                        <div class="form-group">
+                            <label for="example-code">Code</label>
+                            <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="example-description">Description</label>
+                            <textarea class="form-control" id="description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
+                        </div>
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Language</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="javascript">JavaScript</a>
+                                <a href="java">Java</a>
+                                <a href="cpp">C++</a>
+                                <a href="csharp">C#</a>
+                            </div>
+                        </div>
+                        <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<br>
+<br>
+<div class="container snippet">
+    <div class="row">
+        <div class="col-md-3">
+            <br>
+            <br>
+            <div id="sidebar">
+                <div class="sidebar-body">
+                    <br>
+                    <br>
+                    <h3 class="userField">{{username}}</h5>
+                        <p class="text">Some text</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div>
+                {{#each snippets}}
+                <div class="card" style="width: 100%">
+                    <div class="card-body">
+                        <h5>
+                            <p class="snippet-title">{{title}}</p>
+                        </h5>
+                        <h6>
+                            <pclass="snippet-user">{{username}}</p>
+                        </h6>
+                        <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
+                        <p id="snippet-description">{{description}}</p>
+                        <button id="like">Like</a>
+                        <button id="submitComment">Comment</a>
+                        <div id="comments">
+                            {{#each comments}}
+                            <div class="data-snipId">
+                                <div class="card-body">
+                                    {{comment}}
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
 
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
