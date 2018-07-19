@@ -1,5 +1,6 @@
-'use strict';
+"use strict";
 
+// eslint-disable
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.bulkInsert("Users", [{
@@ -13,3 +14,5 @@ module.exports = {
         return queryInterface.bulkDelete("Users", null, {});
     }
 };
+
+// eslint-enable
