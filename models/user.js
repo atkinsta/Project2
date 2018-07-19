@@ -27,7 +27,6 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Snippet, {
             onDelete: "cascade"
         });
-
         User.hasMany(models.Comment, {
             onDelete: "cascade"
         });
