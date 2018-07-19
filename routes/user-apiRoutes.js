@@ -24,14 +24,14 @@ module.exports = function(app) {
     });
 
 
-    // Create a new user
-    app.post("/api/users", function(req, res) {
-        db.User.create(
-            req.body
-        ).then(function(newUser) {
-            res.json(newUser);
-        });
-    });
+    // Create a new user ---- This is handled in login
+    // app.post("/api/users", function(req, res) {
+    //     db.User.create(
+    //         req.body
+    //     ).then(function(newUser) {
+    //         res.json(newUser);
+    //     });
+    // });
 
     // Delete a user by id
     app.delete("/api/users/:id", function(req, res) {

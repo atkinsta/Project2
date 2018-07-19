@@ -15,7 +15,7 @@ passport.use(new LocalStrategy (
                     messege: "Incorrect Username."
                 });
             }
-            else if (!dbUser.validPassport(password)) {
+            else if (!dbUser.validPassword(password)) {
                 return done(null, false, {
                     messege: "Incorrect Password."
                 });
