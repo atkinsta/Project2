@@ -53,7 +53,11 @@ module.exports = function (app) {
     });
 
     app.post("/api/comments", (req, res) => {
-        db.Comment.create(req.body).then(newComment => {
+        db.Comment.create({
+            comment: req.body.comment,
+            UserId: req.user.id,
+            SnippetId: req.body.SnippetId
+        }).then(newComment => {
             res.json(newComment);
         });
     });
