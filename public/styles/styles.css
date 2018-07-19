@@ -21,7 +21,7 @@ body {
   padding: 16px;
   font-size: 16px;
   border: none;
-  height:60px;
+  height: 60px;
   cursor: pointer;
   text-align: center;
   margin-left: 70%;
@@ -66,18 +66,24 @@ body {
 .show {
   display: block;
 }
-.sidebar{
+.sidebar {
   height: 500px;
   background-color: rgb(60, 71, 80);
 }
-.sidebar-body{
+.sidebar-body {
   height: 700px;
   background-color: rgb(60, 71, 80);
 }
-.text{
+.text {
   text-align: center;
   color: white;
 }
-.title{
-  color:white;
+.title {
+  color: white;
+}
+.col-md-9 {
+  width: 90%;
+  padding: 5px;
+  margin: 0px;
+  overflow: auto;
 }

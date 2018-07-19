@@ -12,7 +12,7 @@
                     <form class="clearfix mb-4" method="POST" action="/home">
                         <div class="form-group">
                             <label for="example-code">Code</label>
-                            <textarea type="text" id="code" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
+                            <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="example-description">Description</label>
@@ -27,7 +27,7 @@
                                 <a href="csharp">C#</a>
                             </div>
                         </div>
-                        <button id="submit" class="btn btn-light float-right">Submit</button>
+                        <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -36,11 +36,10 @@
             </div>
         </div>
     </div>
-
 </div>
+<br>
+<br>
 <div class="container snippet">
-    <br>
-    <br>
     <div class="row">
         <div class="col-md-3">
             <br>
@@ -49,33 +48,35 @@
                 <div class="sidebar-body">
                     <br>
                     <br>
-                    <h3 class="title">{{username}}</h5>
+                    <h3 class="userField">{{username}}</h5>
                         <p class="text">Some text</p>
                 </div>
             </div>
         </div>
         <div class="col-md-9">
-            {{#each snippets}}
-            <div class="card" style="width: 100%">
-                <div class="card-body">
-                    <h5>
-                        <p class="snippet-title">{{title}}</p>
-                    </h5>
-                    <h6>
-                        <pclass="snippet-user">{{username}}</p>
-                    </h6>
-                    <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
-                    <p id="snippet-description">{{description}}</p>
-                    <a href="#" class="card-link">Like</a>
-                    <a href="#" class="card-link">Comment</a>
-                    <div id="comments">
-                        {{#each comments}}
-                        <div class="card">
-                            <div class="card-body">
-                                {{comment}}
+            <div>
+                {{#each snippets}}
+                <div class="card" style="width: 100%">
+                    <div class="card-body">
+                        <h5>
+                            <p class="snippet-title">{{title}}</p>
+                        </h5>
+                        <h6>
+                            <pclass="snippet-user">{{username}}</p>
+                        </h6>
+                        <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
+                        <p id="snippet-description">{{description}}</p>
+                        <button id="like">Like</a>
+                        <button id="submitComment">Comment</a>
+                        <div id="comments">
+                            {{#each comments}}
+                            <div class="data-snipId">
+                                <div class="card-body">
+                                    {{comment}}
+                                </div>
                             </div>
+                            {{/each}}
                         </div>
-                        {{/each}}
                     </div>
                 </div>
             </div>
