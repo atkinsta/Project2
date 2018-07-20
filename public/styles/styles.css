@@ -59,7 +59,7 @@ body {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: rgb(221, 221, 221);
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -71,12 +71,14 @@ body {
   background-color: rgb(60, 71, 80);
 }
 .sidebar-body {
+  width: 90%;
   height: 700px;
   background-color: rgb(60, 71, 80);
+  border-radius: 25px;
 }
 .text {
   text-align: center;
-  color: white;
+  color: rgb(202, 144, 58);
 }
 .title {
   color: white;
@@ -86,4 +88,26 @@ body {
   padding: 5px;
   margin: 0px;
   overflow: auto;
+}
+.card-body comments {
+  color: rgb(202, 144, 58);
+  width: 80%;
+  border-radius: 25px;
+}
+.card-body{
+  
+}
+.col-md-6.login{
+  background-color: rgb(60, 71, 80);
+  border-radius: 25px;
+  padding: 20px;
+  color:whitesmoke;
+}
+.form-check{
+  text-align: center;
+}
+#login-title{
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px;
 }
