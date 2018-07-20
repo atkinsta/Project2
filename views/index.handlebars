@@ -64,22 +64,31 @@
                         <h5>
                             <p class="snippet-title">{{this.title}}</p>
                         </h5>
+
                         <h6>
-                            <pclass="snippet-user">{{this.username}}</p>
-                        </h6>
+                            <pclass="snippet-user">{{this.User.username}}</p>
+                        </h6>       
                         <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
                         <p id="snippet-description">{{description}}</p>
+
                         <button id="like" class="btn btn-warning">Like</a>
-                        <button id="submitComment" class="btn btn-warning">Comment</a>
+                        <button id="submitComment" class="btn btn-warning">Comment</button>
                         <br>
                         <div id="comments" class="card-body comments">
-                            {{#each this.Comments}}
                             <div class="data-snipId">
                                 <div class="card-body">
-                                    {{comment}}
+                                    {{#each this.Comments}}
+                                    
+                                    <p>{{comment}} - - </p>
+                                    {{#with User}} 
+                                            <p>{{username}} </p>
+                                    {{/with}}
+                                        
+                                       
+                                    {{/each}}
                                 </div>
                             </div>
-                            {{/each}}
+                            
                         </div>
                     </div>
                 </div>
@@ -88,6 +97,10 @@
         </div>
     </div>
 </div>
+
+
+
+{{!-- Scripts --}}
 <script>
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
