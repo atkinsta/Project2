@@ -94,20 +94,30 @@ body {
   width: 80%;
   border-radius: 25px;
 }
-.card-body{
-  
+.card-body {
 }
-.col-md-6.login{
+.col-md-6.login {
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
   padding: 20px;
-  color:whitesmoke;
+  color: whitesmoke;
 }
-.form-check{
+.form-check {
   text-align: center;
 }
-#login-title{
+#login-title {
   text-align: center;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   font-size: 30px;
+}
+#signup-title {
+  text-align: center;
+  font-family: "Permanent Marker", cursive;
+  font-size: 30px;
+}
+.col-md-6.signup {
+  background-color: rgb(60, 71, 80);
+  border-radius: 25px;
+  padding: 20px;
+  color: whitesmoke;
 }
