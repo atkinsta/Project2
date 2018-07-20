@@ -81,10 +81,13 @@
                             <div class="data-snipId">
                                 <div class="card-body">
                                     {{#each this.Comments}}
-                                    <p>{{comment}} - - 
-                                        {{#each this.User}} 
-                                            {{username}} 
-                                        {{/each}}</p>
+                                    
+                                    <p>{{comment}} - - </p>
+                                    {{#with User}} 
+                                            <p>{{username}} </p>
+                                    {{/with}}
+                                        
+                                       
                                     {{/each}}
                                 </div>
                             </div>
@@ -97,6 +100,10 @@
         </div>
     </div>
 </div>
+
+
+
+{{!-- Scripts --}}
 <script>
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
