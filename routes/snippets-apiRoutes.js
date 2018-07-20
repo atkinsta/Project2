@@ -1,4 +1,5 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
@@ -19,7 +20,7 @@ module.exports = function (app) {
         });
     });
     
-    app.get("/home", (req, res) => {
+    app.get("/home", isAuthenticated, (req, res) => {
         db.Snippet.findAll({
             include: [{all: true}]
         }).then(data => {
