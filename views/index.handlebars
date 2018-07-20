@@ -62,10 +62,10 @@
                 <div class="card" style="width: 100%">
                     <div class="card-body">
                         <h5>
-                            <p class="snippet-title">{{title}}</p>
+                            <p class="snippet-title">{{this.title}}</p>
                         </h5>
                         <h6>
-                            <pclass="snippet-user">{{username}}</p>
+                            <pclass="snippet-user">{{this.username}}</p>
                         </h6>
                         <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
                         <p id="snippet-description">{{description}}</p>
@@ -73,19 +73,18 @@
                         <button id="submitComment" class="btn btn-warning">Comment</a>
                         <br>
                         <div id="comments" class="card-body comments">
-                            {{#each comments}}
+                            {{#each this.Comments}}
                             <div class="data-snipId">
                                 <div class="card-body">
                                     {{comment}}
                                 </div>
                             </div>
                             {{/each}}
-                            
                         </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
     </div>
 </div>
