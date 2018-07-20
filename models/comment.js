@@ -9,6 +9,13 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 len: [1, 255]
             }
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 255]
+            }
         }
     });
 
