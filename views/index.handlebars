@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="clearfix mb-4" method="POST" action="/home">
+                    <form class="clearfix mb-4">
                         <div class="form-group">
                             <label for="example-code">Code</label>
                             <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
@@ -67,7 +67,7 @@
                         <h6>
                             <pclass="snippet-user">{{this.username}}</p>
                         </h6>
-                        <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
+                        <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
                         <p id="snippet-description">{{description}}</p>
                         <button id="like" class="btn btn-warning">Like</a>
                         <button id="submitComment" class="btn btn-warning">Comment</a>

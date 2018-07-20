@@ -1,4 +1,3 @@
-var isAuthenticatd = require("../config/middleware/isAuthenticated");
 var db = require("../models");
 
 module.exports = function(app) {
@@ -23,20 +22,6 @@ module.exports = function(app) {
         }
         res.render("signup");
     });
-
-    app.get("/home", isAuthenticatd, (req, res) => {
-        res.render("index");
-    });
-
-    // app.get("/test", (req, res) => {
-    //     db.Snippet.findAll({
-    //         include: [
-    //             {all: true}]
-    //     }).then(allSnippets => {
-    //         console.log(allSnippets);
-    //         res.render("index", {snippets: allSnippets, comments: allSnippets.Comments});
-    //     });
-    // });
 
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
