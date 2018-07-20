@@ -12,7 +12,7 @@
                     <form class="clearfix mb-4">
                         <div class="form-group">
                             <label for="example-title">Title of snippet</label>
-                            <textarea type="text" id="codeBlockTitle" class="form-control" aria-describedby="example-text" placeholder="Enter Code" style="height:50px"></textarea>
+                            <textarea type="text" id="title" class="form-control" aria-describedby="example-text" placeholder="Enter Code" style="height:50px"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="example-code">Code</label>
@@ -23,19 +23,20 @@
                             <textarea class="form-control" id="description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
                         </div>
                         <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">Language</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="javascript">JavaScript</a>
-                                <a href="java">Java</a>
-                                <a href="cpp">C++</a>
-                                <a href="csharp">C#</a>
-                            </div>
+                            <select class="form-control required" id="question_10" style="width: 100%">
+                                <option value="">Select an option</option>
+                                <option value="java">Java</option>
+                                <option value="cpp">C++</option>
+                                <option value="csharp">C#</option>
+                                <option value="javascript">JavaScript</option>
+                            </select>
                         </div>
-                        <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
+                    {{!--
+                    <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button> --}}
                 </div>
             </div>
         </div>
@@ -76,60 +77,40 @@
 
                         <h6>
                             <pclass="snippet-user">{{this.User.username}}</p>
-                        </h6>       
+                        </h6>
                         <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
                         <p id="snippet-description">{{description}}</p>
 
                         <button id="like" class="btn btn-warning">Like</a>
-                        <button id="submitComment" class="btn btn-warning">Comment</button>
-                        <br>
-                        <div id="comments" class="card-body comments">
-                            <div class="data-snipId">
-                                <div class="card-body">
-                                    {{#each this.Comments}}
-                                    
-                                    <p>{{comment}} - - {{username}}</p>
-                                    
-                                        
-                                       
-                                    {{/each}}
-                                </div>
+                            <button id="submitComment" class="btn btn-warning">Comment</button>
+                            <br>
+                            <div id="comments" class="card-body comments">
+                                <div class="data-snipId">
+                                    <div class="card-body">
+                                        {{#each this.Comments}}
 
+                                        <p>{{comment}} - - {{username}}</p>
+
+
+
+                                        {{/each}}
+                                    </div>
+
+                                </div>
                             </div>
                     </div>
+                    {{/each}}
                 </div>
-                {{/each}}
             </div>
         </div>
     </div>
-</div>
 
+    {{!-- Scripts --}}
+    <script>
+        $(document).on("click", "#makeSnippet", function (event) {
+            $("#makeSnippetModal").show();
+        });
 
-
-{{!-- Scripts --}}
-<script>
-    $(document).on("click", "#makeSnippet", function (event) {
-        $("#makeSnippetModal").show();
-
-    });
-
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
