@@ -29,6 +29,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/snippets-apiRoutes")(app);
+require("./routes/user-apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/loginRoutes")(app);
 

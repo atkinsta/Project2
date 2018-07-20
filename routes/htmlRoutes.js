@@ -17,6 +17,13 @@ module.exports = function(app) {
         res.render("login");
     });
 
+    app.get("/signup", (req, res) => {
+        if (req.user) {
+            res.redirect("/home");
+        }
+        res.render("signup");
+    });
+
     app.get("/home", isAuthenticatd, (req, res) => {
         res.render("index");
     });

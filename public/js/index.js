@@ -3,19 +3,25 @@ $(document).ready(function() {
         location.href = "/";
     });
 
+    // $(document).on("click", "#makeSnippet", function() {
+    //     $("#makeSnippetModal").modal("show");
+    // });
+
     $(document).on("click", "#submitSnippet", function() {
         let newSnippet = {
-            title: $("#title").val().trim(),
+            title: $("#title")
+                .val()
+                .trim(),
             language: $("#myDropdown").val(),
             codeBlock: $("#codeBlock").val(),
-            description: $("#description").val(),
+            description: $("#description").val()
         };
 
         $.ajax({
             url: "/api/snippets",
             method: "POST",
             data: newSnippet
-        }).then(function () {
+        }).then(function() {
             location.reload();
         });
     });
@@ -23,7 +29,7 @@ $(document).ready(function() {
     $(document).on("click", ".langSelect", function() {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
-            method: "GET",
+            method: "GET"
         });
     });
 
@@ -31,7 +37,14 @@ $(document).ready(function() {
         $.ajax({
             url: "/api/comments",
             method: "POST",
-            data: {comment: $("#commentContent").val().trim(), SnippetId: $(this).parent().attr("data-snipId")}
+            data: {
+                comment: $("#commentContent")
+                    .val()
+                    .trim(),
+                SnippetId: $(this)
+                    .parent()
+                    .attr("data-snipId")
+            }
         });
     });
 
@@ -44,15 +57,21 @@ $(document).ready(function() {
         $.ajax({
             url: "/api/login",
             method: "POST",
-            data: newLogin,
+            data: newLogin
         });
     });
 
     $(document).on("click", "#signup", function() {
         var newUser = {
-            username: $("#newUsername").val().trim(),
-            fullName: $("#newFullname").val().trim(),
-            password: $("#newPassword").val().trim()
+            username: $("#newUsername")
+                .val()
+                .trim(),
+            fullName: $("#newFullname")
+                .val()
+                .trim(),
+            password: $("#newPassword")
+                .val()
+                .trim()
         };
 
         $.ajax({
@@ -66,7 +85,7 @@ $(document).ready(function() {
     $(document).on("click", ".like", function() {
         $.ajax({
             url: "/api/snippets/like/" + $(this).attr("data-id"),
-            method: "PUT",
+            method: "PUT"
         });
     });
 });

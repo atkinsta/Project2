@@ -4,20 +4,31 @@ module.exports = function(app) {
     // Get all users usernames
     app.get("/api/users", function(req, res) {
         db.User.findAll({
-            attributes: [username]
+            attributes: {
+                exclude: ["password","fullName", "id"]},
+            // add number of posts
+            // add number of comments
         }).then(function(allUsers) {
             res.json(allUsers);
         });
     });
 
     // Get a user's snippets
-    app.get("/api/users/:id", function(req, res) {
+    app.get("/api/users/:username", function(req, res) {
         db.User.findOne({
-            attributes: [username],
+            attributes: {
+                exclude: ["password"]},
             where: {
-                id: req.params.id
+                username: req.params.username
             },
-            include: ["Snippets"]
+            include: [ //includes both snippets from that author and their comments, this will be useful later.
+                {
+                    model: db.Snippet
+                },
+                {
+                    model: db.Comment
+                }
+            ]
         }).then(function(user) {
             res.json(user);
         });
