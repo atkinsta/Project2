@@ -83,16 +83,20 @@
                         <p id="snippet-description">{{description}}</p>
 
                         <button id="like" class="btn btn-warning">Like</a>
-                            <button id="submitComment" class="btn btn-warning">Comment</button>
-                            <br>
-                            <div id="comments" class="card-body comments">
-                                <div class="data-snipId">
-                                    <div class="card-body">
-                                        {{#each this.Comments}}
-                                        <p>{{comment}} - - {{#each this.User}} {{username}} {{/each}}
-                                        </p>
-                                        {{/each}}
-                                    </div>
+                        <button id="submitComment" class="btn btn-warning">Comment</button>
+                        <br>
+                        <div id="comments" class="card-body comments">
+                            <div class="data-snipId">
+                                <div class="card-body">
+                                    {{#each this.Comments}}
+                                    
+                                    <p>{{comment}} - - </p>
+                                    {{#with User}} 
+                                            <p>{{username}} </p>
+                                    {{/with}}
+                                        
+                                       
+                                    {{/each}}
                                 </div>
 
                             </div>
@@ -103,6 +107,10 @@
         </div>
     </div>
 </div>
+
+
+
+{{!-- Scripts --}}
 <script>
     $(document).on("click", "#makeSnippet", function (event) {
         $("#makeSnippetModal").show();
