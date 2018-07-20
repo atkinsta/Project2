@@ -12,6 +12,11 @@ module.exports = {
                 username: "userTwo",
                 fullName: "User Two",
                 password: "supersecret2"
+            },
+            {
+                username: "userThree",
+                fullName: "User Three",
+                password: "supersecret3"
             }
         ], {});
     },
