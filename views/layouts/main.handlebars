@@ -20,26 +20,27 @@
     <li><a href="#"><i class="icon20 home"></i><span>Home</span></a></li>
 
 	<li><a href="#"><i class="icon20 download"></i><span>All</span></a></li>
-{{!-- 	<li class="drpdown"><a href="#"><i class="icon20 comments"></i><span>Posts</span></a>
+	<li class="drpdown"><a href="#"><i class="icon20 comments"></i><span>Posts</span></a>
 		<ul class="drpcontent">
-			<li><a href="#">Latest Posts</a></li>
-			<li><a href="#">Popular Posts</a></li>
-			<li><a href="#">Private Posts</a></li>
+<label class="my-1 mr-2" for="inlineFormCustomSelectPref"></label>
+            
+        </select>           
+		
 		</ul>
 	</li>
- --}}
+
  {{!-- <li><a href="#"><i class="icon20 download"></i><span>All</span></a></li> --}}
 	<li class="drpdown"><a href="#"><i class="icon20 theme"></i><span>Category</span></a>
 		<ul class="drpcontent" id="themeselect">
-			<li><a href="#" data-color="color1">Bootstrap</a></li>
-			<li><a href="#" data-color="color2">Html</a></li>
-			<li><a href="#" data-color="color3">JavaScript</a></li>
-			<li><a href="#" data-color="color4">Node</a></li>
-			<li><a href="#" data-color="color5">----</a></li>
+			<li ><a id="code" value="bootstrap" >Bootstrap</a></li>
+			<li><a  value="color2"  id ="">Html</a></li>
+			<li><a value="color3" id ="">JavaScript</a></li>
+			<li><a  value="color4"  id ="">Node</a></li>
+			
 		</ul>
 	</li>
 	<li><a href="#"><i class="icon20 upload"></i><span>About</span></a></li>
-  	<li><a href="#"><i class="icon20 login"></i><span>Login</span></a></li>
+  	<li><a href="#">			<li></i><span>Login</span></a></li>
 </ul>
   {{{body}}}
 </body>
@@ -48,5 +49,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 <script src="/js/prism.js"></script>
+<script>
+
+
+  // Get the form inputs
+  $("#code").on("click", function(event) {
+      
+      console.log($(this).attr("value"));
+    {{!-- console.log( $("#photo").val());
+    console.log( $("#name").val()); --}}
+
+     
+        });
+		</script>
+        
 </footer>
 </html>
