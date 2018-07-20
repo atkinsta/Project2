@@ -1,4 +1,5 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
 
@@ -19,7 +20,7 @@ module.exports = function (app) {
         });
     });
     
-    app.get("/home", (req, res) => {
+    app.get("/home", isAuthenticated, (req, res) => {
         db.Snippet.findAll({
             include: [{all: true}]
         }).then(data => {
@@ -75,6 +76,7 @@ module.exports = function (app) {
     app.post("/api/comments", (req, res) => {
         db.Comment.create({
             comment: req.body.comment,
+            username: req.user.username,
             UserId: req.user.id,
             SnippetId: req.body.SnippetId
         }).then(newComment => {

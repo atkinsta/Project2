@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="clearfix mb-4" method="POST" action="/home">
+                    <form class="clearfix mb-4">
                         <div class="form-group">
                             <label for="example-title">Title of snippet</label>
                             <textarea type="text" id="codeBlockTitle" class="form-control" aria-describedby="example-text" placeholder="Enter Code" style="height:50px"></textarea>
@@ -43,7 +43,7 @@
 </div>
 <br>
 <br>
-{{!-- <div class="container snippet">
+<div class="container snippet">
     <div class="row">
         <div class="col-md-3">
             <br>
@@ -76,10 +76,8 @@
 
                         <h6>
                             <pclass="snippet-user">{{this.User.username}}</p>
-                        </h6>
-
+                        </h6>       
                         <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
-
                         <p id="snippet-description">{{description}}</p>
 
                         <button id="like" class="btn btn-warning">Like</a>
@@ -90,10 +88,8 @@
                                 <div class="card-body">
                                     {{#each this.Comments}}
                                     
-                                    <p>{{comment}} - - </p>
-                                    {{#with User}} 
-                                            <p>{{username}} </p>
-                                    {{/with}}
+                                    <p>{{comment}} - - {{username}}</p>
+                                    
                                         
                                        
                                     {{/each}}
@@ -106,7 +102,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 
 
 
