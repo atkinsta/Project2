@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="clearfix mb-4" method="POST" action="/home">
+                    <form class="clearfix mb-4">
                         <div class="form-group">
                             <label for="example-code">Code</label>
                             <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
@@ -64,22 +64,29 @@
                         <h5>
                             <p class="snippet-title">{{this.title}}</p>
                         </h5>
+
                         <h6>
-                            <pclass="snippet-user">{{this.username}}</p>
-                        </h6>
-                        <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
+                            <pclass="snippet-user">{{this.User.username}}</p>
+                        </h6>       
+                        <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
                         <p id="snippet-description">{{description}}</p>
+
                         <button id="like" class="btn btn-warning">Like</a>
-                        <button id="submitComment" class="btn btn-warning">Comment</a>
+                        <button id="submitComment" class="btn btn-warning">Comment</button>
                         <br>
                         <div id="comments" class="card-body comments">
-                            {{#each this.Comments}}
                             <div class="data-snipId">
                                 <div class="card-body">
-                                    {{comment}}
+                                    {{#each this.Comments}}
+                                    
+                                    <p>{{comment}} - - {{username}}</p>
+                                    
+                                        
+                                       
+                                    {{/each}}
                                 </div>
                             </div>
-                            {{/each}}
+                            
                         </div>
                     </div>
                 </div>
@@ -88,6 +95,10 @@
         </div>
     </div>
 </div>
+
+
+
+{{!-- Scripts --}}
 <script>
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");

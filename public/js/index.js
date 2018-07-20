@@ -4,6 +4,7 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "#submitSnippet", function() {
+        event.preventDefault();
         let newSnippet = {
             title: $("#title").val().trim(),
             language: $("#myDropdown").val(),
@@ -28,6 +29,7 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "#submitComment", function() {
+        event.preventDefault();
         $.ajax({
             url: "/api/comments",
             method: "POST",
@@ -35,32 +37,55 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on("click", "#login", function() {
+    var loginForm = $("form.login");
+    loginForm.on("submit", function(event) {
+        event.preventDefault();
         var newLogin = {
-            username: $("#userField").val(),
-            password: $("#passwordField").val()
+            username: $("input#userField").val().trim(),
+            password: $("input#passwordField").val().trim()
         };
+
+        if (!newLogin.username || !newLogin.password) {
+            return;
+        }
 
         $.ajax({
             url: "/api/login",
             method: "POST",
             data: newLogin,
+        }).then(function(data) {
+            window.location.replace(data);
+        }).catch(function(err) {
+            console.log(err);
         });
     });
 
-    $(document).on("click", "#signup", function() {
+    var signupForm = $("form.signup");
+    signupForm.on("submit", function(event) {
+        event.preventDefault();
         var newUser = {
-            username: $("#newUsername").val().trim(),
-            fullName: $("#newFullname").val().trim(),
-            password: $("#newPassword").val().trim()
+            username: $("input#newUsername").val().trim(),
+            fullName: $("input#newFullname").val().trim(),
+            password: $("input#newPassword").val().trim()
         };
+
+        if (!newUser.username || !newUser.password) {
+            return;
+        }
 
         $.ajax({
             url: "/api/signup",
             method: "POST",
             data: newUser
-        });
+        }).then(function(data) {
+            window.location.replace(data);
+        }).catch(handleLoginErr);
     });
+
+    function handleLoginErr(err) {
+        $("#alert .msg").text(err.reponseJSON);
+        $("#alert").fadeIn(500);
+    }
 
     $(document).on("click", ".like", function() {
         $.ajax({
