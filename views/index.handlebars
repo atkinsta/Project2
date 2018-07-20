@@ -31,7 +31,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -52,9 +52,12 @@
                         <p class="text">Some text</p>
                 </div>
             </div>
+            <br><br><br>
         </div>
         <div class="col-md-9">
+            <br><br>
             <div>
+                <br>
                 {{#each snippets}}
                 <div class="card" style="width: 100%">
                     <div class="card-body">
@@ -66,9 +69,10 @@
                         </h6>
                         <pre><code class="language-{{language}} codeBlock">{{snippet}}</code></pre>
                         <p id="snippet-description">{{description}}</p>
-                        <button id="like">Like</a>
-                        <button id="submitComment">Comment</a>
-                        <div id="comments">
+                        <button id="like" class="btn btn-warning">Like</a>
+                        <button id="submitComment" class="btn btn-warning">Comment</a>
+                        <br>
+                        <div id="comments" class="card-body comments">
                             {{#each this.Comments}}
                             <div class="data-snipId">
                                 <div class="card-body">
