@@ -76,6 +76,7 @@ module.exports = function (app) {
     app.post("/api/comments", (req, res) => {
         db.Comment.create({
             comment: req.body.comment,
+            username: req.user.username,
             UserId: req.user.id,
             SnippetId: req.body.SnippetId
         }).then(newComment => {
