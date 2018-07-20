@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "development": {
         "username": "root",
         "password": "rootroot",
@@ -19,3 +20,25 @@
         "dialect": "mysql"
     }
 }
+=======
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "project2_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "testdb",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}
+>>>>>>> 553acd5740b5f2c3779ff26f4e04837c6652317a
