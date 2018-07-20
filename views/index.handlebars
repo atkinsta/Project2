@@ -39,25 +39,25 @@
 </div>
 <br>
 <br>
-<div class="container snippet">
+<div class="container">
     <div class="row">
+
+        {{!-- Sidebar --}}
         <div class="col-md-3">
-            <br>
-            <br>
-            <div id="sidebar">
-                <div class="sidebar-body">
+                <div class="sidebar">
                     <br>
                     <br>
                     <h3 class="userField">{{username}}</h5>
                         <p class="text">Some text</p>
                 </div>
-            </div>
-            <br><br><br>
         </div>
-        <div class="col-md-9">
-            <br><br>
+
+
+
+        {{!-- Snippet Cards --}}
+        <div class="col-md-9 snippets">
+            
             <div>
-                <br>
                 {{#each snippets}}
                 <div class="card" style="width: 100%">
                     <div class="card-body">
@@ -66,27 +66,33 @@
                         </h5>
 
                         <h6>
-                            <pclass="snippet-user">{{this.User.username}}</p>
-                        </h6>       
+                            <p class="snippet-user">{{this.User.username}}</p>
+                        </h6>
+
                         <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
+
                         <p id="snippet-description">{{description}}</p>
 
-                        <button id="like" class="btn btn-warning">Like</a>
-                        <button id="submitComment" class="btn btn-warning">Comment</button>
-                        <br>
-                        <div id="comments" class="card-body comments">
-                            <div class="data-snipId">
-                                <div class="card-body">
-                                    {{#each this.Comments}}
-                                    
-                                    <p>{{comment}} - - {{username}}</p>
-                                    
-                                        
-                                       
-                                    {{/each}}
-                                </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="commentText">Comment</label>
+                                <input type="text" class="form-control" id="commentText" data-id={{this.id}}>
                             </div>
+                            <button id="submitComment" class="btn btn-warning">Comment</button>
+                        </form>
+
+
+                        <br>
+                        <div class="comments" id={{this.id}}>
                             
+                            {{!-- JSON rendered on load --}}
+                            {{#each this.Comments}}
+                            <p>{{comment}} - - {{username}}</p>
+                            {{/each}}
+
+                            {{!-- New comments will append here --}}
+
+
                         </div>
                     </div>
                 </div>
