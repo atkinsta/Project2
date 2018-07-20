@@ -60,6 +60,7 @@ $(document).ready(function() {
             method: "POST",
             data: newUser
         });
+        location.href = "/signup";
     });
 
     $(document).on("click", ".like", function() {
