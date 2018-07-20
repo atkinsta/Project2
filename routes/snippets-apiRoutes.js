@@ -19,7 +19,7 @@ module.exports = function (app) {
         });
     });
     
-    app.get("/test", (req, res) => {
+    app.get("/home", (req, res) => {
         db.Snippet.findAll({
             include: [{all: true}]
         }).then(data => {
