@@ -1,5 +1,5 @@
 <div id="modal">
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal" tabindex="-1" role="dialog" id="makeSnippetModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -11,6 +11,10 @@
                 <div class="modal-body">
                     <form class="clearfix mb-4">
                         <div class="form-group">
+                            <label for="example-title">Title of snippet</label>
+                            <input type="text" id="title" class="form-control" aria-describedby="example-text" placeholder="Enter Code" style="height:50px"></input>
+                        </div>
+                        <div class="form-group">
                             <label for="example-code">Code</label>
                             <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
                         </div>
@@ -19,113 +23,98 @@
                             <textarea class="form-control" id="description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
                         </div>
                         <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">Language</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="javascript">JavaScript</a>
-                                <a href="java">Java</a>
-                                <a href="cpp">C++</a>
-                                <a href="csharp">C#</a>
-                            </div>
+                            <label for="languageOptions">Code Language</label>
+                            <select class="form-control required" id="languageOptions" style="width: 100%">
+                                <option value="">Select an option</option>
+                                <option value="java">Java</option>
+                                <option value="cpp">C++</option>
+                                <option value="csharp">C#</option>
+                                <option value="javascript">JavaScript</option>
+                            </select>
                         </div>
-                        <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
+
                     <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br>
-<br>
+
+
 <div class="container">
     <div class="row">
 
         {{!-- Sidebar --}}
         <div class="col-md-3">
-                <div class="sidebar">
-                    <br>
-                    <br>
-                    <h3 class="userField">{{username}}</h5>
-                        <p class="text">Some text</p>
-                </div>
+            <div class="sidebar">
+                <br>
+                <br>
+                <h3 class="userField">{{this.username}}</h5>
+                    <p class="text">Some text</p>
+                    <center>
+                        <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+                        <center>
+            </div>
 
-                {{!-- Sidebar As Card --}}
-                
+            {{!-- Sidebar As Card --}}
+
         </div>
 
 
 
         {{!-- Snippet Cards --}}
         <div class="col-md-9 snippets">
-            
-            <div>
-                {{#each snippets}}
-                <div class="card" style="width: 100%">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{this.title}}
-                        </h5>
-
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            {{this.User.username}}
-                        </h6>
-
-                        <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
-
-                        <p class= "card-text" id="snippet-description">{{description}}</p>
-
-                        <form>
-                            <div class="form-group">
-                                <label for="commentText">Comment</label>
-                                <input type="text" class="form-control" id="commentText" data-id={{this.id}}>
-                            </div>
-                            <button id="submitComment" class="btn btn-warning">Comment</button>
-                        </form>
 
 
-                        <br>
-                        <div class="comments" id={{this.id}}>
-                            
-                            {{!-- JSON rendered on load --}}
-                            {{#each this.Comments}}
-                            <p>{{comment}} - - {{username}}</p>
-                            {{/each}}
+            {{#each snippets}}
+            <div class="card" style="width: 100%">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{this.title}}
+                    </h5>
 
-                            {{!-- New comments will append here --}}
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        {{this.User.username}}
+                    </h6>
 
+                    <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
+                    <p class="card-text" id="snippet-description">{{description}}</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="commentText">Comment</label>
+                            <input type="text" class="form-control" id="commentText" data-id={{this.id}}>
                         </div>
+                        <button id="submitComment" class="btn btn-warning">Comment</button>
+                    </form>
+
+
+                    <br>
+                    <div class="comments" id={{this.id}}>
+
+                        {{!-- JSON rendered on load --}} {{#each this.Comments}}
+                        <p>{{comment}} - - {{username}}</p>
+                        {{/each}} {{!-- New comments will append here --}}
+
+
                     </div>
                 </div>
-                {{/each}}
+
             </div>
+            {{/each}}
         </div>
     </div>
-</div>
 
+    {{!-- Scripts --}}
 
-
-{{!-- Scripts --}}
-<script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+    <script>
+        $(document).on("click", "#makeSnippet", function (event) {
+            $("#makeSnippetModal").(toggle);
+            console.log("this", this);
+        });
+    </script>

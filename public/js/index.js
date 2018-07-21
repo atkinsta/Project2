@@ -7,9 +7,11 @@ $(document).ready(function () {
         event.preventDefault();
         let newSnippet = {
             title: $("#title").val().trim(),
-            language: $("#myDropdown").val(),
+            language: $("#languageOptions").val(),
             codeBlock: $("#codeBlock").val(),
             description: $("#description").val(),
+            // Needs to pull in current user
+            UserId: 1
         };
 
         $.ajax({
