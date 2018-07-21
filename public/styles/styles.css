@@ -3,6 +3,9 @@
 }
 body {
   background-image: url("http://ironrocksolutions.com/wp-content/uploads/2016/07/background-2462436_1920.jpg");
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .col-8.offset-2.form {
   background-color: rgb(60, 71, 80);
@@ -44,6 +47,10 @@ body {
   width: 80%;
   border-radius: 25px;
 }
+<<<<<<< HEAD
+ 
+=======
+>>>>>>> 988c987395c7770d53e44b8ae22bfe747ff727e3
 .col-md-6.login {
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
@@ -70,19 +77,46 @@ body {
   color: whitesmoke;
 }
 
+<<<<<<< HEAD
+/* Menu Bar */
+=======
 /* scrolling comments box */
 .comments {
   height: 300px;
   overflow-x: scroll;
 }
+>>>>>>> 988c987395c7770d53e44b8ae22bfe747ff727e3
 #dropdownMenu2{
   margin-right: 10px;
+  font-size: 20px;
+  text-shadow: 1px 1px 10px black;
 }
+
+#bar{
+  color:white;
+  font-size: 20px;
+  text-shadow: 1px 1px 10px black;
+}
+.navbar-brand{
+  font-size:28px;
+  font-family: "Permanent Marker", cursive;
+  text-shadow: 1px 1px 10px black;
+}
+
+.navbar{
+  background-color: rgb(60, 71, 80) !important;
+}
+
+/* Footer */
 #bottom{
   margin-top: 50px;
   height: 40px;
+<<<<<<< HEAD
+}
+=======
 }
 
 nav {
   margin-bottom: 20px;
 }
+>>>>>>> 988c987395c7770d53e44b8ae22bfe747ff727e3
