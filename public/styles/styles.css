@@ -3,6 +3,10 @@
 }
 body {
   background-image: url("http://ironrocksolutions.com/wp-content/uploads/2016/07/background-2462436_1920.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .col-8.offset-2.form {
   background-color: rgb(60, 71, 80);
@@ -72,17 +76,23 @@ body {
 
 /* scrolling comments box */
 .comments {
-  height: 300px;
+  height: 200px;
   overflow-x: scroll;
 }
-#dropdownMenu2{
+#dropdownMenu2 {
   margin-right: 10px;
 }
-#bottom{
+#bottom {
   margin-top: 50px;
   height: 40px;
 }
 
 nav {
   margin-bottom: 20px;
+}
+.codeBlock.language-javascript {
+  color: white;
+}
+.btn.btn-info.btn-lg {
+  margin: 20%;
 }
