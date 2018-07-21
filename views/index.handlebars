@@ -50,6 +50,9 @@
                     <h3 class="userField">{{username}}</h5>
                         <p class="text">Some text</p>
                 </div>
+
+                {{!-- Sidebar As Card --}}
+                
         </div>
 
 
@@ -61,17 +64,17 @@
                 {{#each snippets}}
                 <div class="card" style="width: 100%">
                     <div class="card-body">
-                        <h5>
-                            <p class="snippet-title">{{this.title}}</p>
+                        <h5 class="card-title">
+                            {{this.title}}
                         </h5>
 
-                        <h6>
-                            <p class="snippet-user">{{this.User.username}}</p>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            {{this.User.username}}
                         </h6>
 
                         <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
-                        <p id="snippet-description">{{description}}</p>
+                        <p class= "card-text" id="snippet-description">{{description}}</p>
 
                         <form>
                             <div class="form-group">
