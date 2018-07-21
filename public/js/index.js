@@ -1,15 +1,17 @@
-$(document).ready(function() {
-    $(document).on("click", "#home", function() {
+$(document).ready(function () {
+    $(document).on("click", "#home", function () {
         location.href = "/";
     });
 
-    $(document).on("click", "#submitSnippet", function() {
+    $(document).on("click", "#submitSnippet", function () {
         event.preventDefault();
         let newSnippet = {
             title: $("#title").val().trim(),
-            language: $("#myDropdown").val(),
+            language: $("#languageOptions").val(),
             codeBlock: $("#codeBlock").val(),
             description: $("#description").val(),
+            // Needs to pull in current user
+            UserId: 1
         };
 
         $.ajax({
@@ -21,24 +23,34 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on("click", ".langSelect", function() {
+    $(document).on("click", ".langSelect", function () {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
             method: "GET",
         });
     });
 
-    $(document).on("click", "#submitComment", function() {
+    $(document).on("click", "#submitComment", function () {
         event.preventDefault();
         $.ajax({
             url: "/api/comments",
             method: "POST",
-            data: {comment: $("#commentContent").val().trim(), SnippetId: $(this).parent().attr("data-snipId")}
+            data: {
+                comment: $("#commentText").val().trim(), SnippetId:
+                    $("#commentText").data("id")
+            }
+        }).then(function (newComment) {
+            $("#commentText").val("");
+            
+            var html = "<p>"+ newComment.comment + " - - " + newComment.username + "</p>";
+            $("#"+newComment.SnippetId+"").append(html);
+
         });
+
     });
 
     var loginForm = $("form.login");
-    loginForm.on("submit", function(event) {
+    loginForm.on("submit", function (event) {
         event.preventDefault();
         var newLogin = {
             username: $("input#userField").val().trim(),
@@ -53,15 +65,15 @@ $(document).ready(function() {
             url: "/api/login",
             method: "POST",
             data: newLogin,
-        }).then(function(data) {
+        }).then(function (data) {
             window.location.replace(data);
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(err);
         });
     });
 
     var signupForm = $("form.signup");
-    signupForm.on("submit", function(event) {
+    signupForm.on("submit", function (event) {
         event.preventDefault();
         var newUser = {
             username: $("input#newUsername").val().trim(),
@@ -77,7 +89,7 @@ $(document).ready(function() {
             url: "/api/signup",
             method: "POST",
             data: newUser
-        }).then(function(data) {
+        }).then(function (data) {
             window.location.replace(data);
         }).catch(handleLoginErr);
     });
@@ -87,10 +99,17 @@ $(document).ready(function() {
         $("#alert").fadeIn(500);
     }
 
-    $(document).on("click", ".like", function() {
+    $(document).on("click", ".like", function () {
         $.ajax({
             url: "/api/snippets/like/" + $(this).attr("data-id"),
             method: "PUT",
         });
     });
+
+    
+    $(document).on("click", "#makeSnippet", function (event) {
+        $("#makeSnippetModal").modal("toggle");
+        
+    });
+    
 });

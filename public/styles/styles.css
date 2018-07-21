@@ -13,62 +13,12 @@ body {
   color: whitesmoke;
 }
 .card {
+  margin-bottom: 15px;
   background-color: rgb(60, 71, 80);
   color: whitesmoke;
   border-radius: 25px;
 }
-/* Dropdown Button */
-.dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  height: 60px;
-  cursor: pointer;
-  text-align: center;
-  margin-left: 70%;
-}
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover,
-.dropbtn:focus {
-  background-color: #2980b9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: rgb(221, 221, 221);
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-  display: block;
-}
 .sidebar {
   height: 500px;
   background-color: rgb(60, 71, 80);
@@ -86,18 +36,21 @@ body {
 .title {
   color: white;
 }
-.col-md-9 {
+.snippets {
   width: 90%;
   padding: 5px;
   margin: 0px;
   overflow: auto;
 }
-.card-body comments {
+#comments {
   color: rgb(202, 144, 58);
   width: 80%;
   border-radius: 25px;
 }
+<<<<<<< HEAD
  
+=======
+>>>>>>> 988c987395c7770d53e44b8ae22bfe747ff727e3
 .col-md-6.login {
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
@@ -124,7 +77,15 @@ body {
   color: whitesmoke;
 }
 
+<<<<<<< HEAD
 /* Menu Bar */
+=======
+/* scrolling comments box */
+.comments {
+  height: 300px;
+  overflow-x: scroll;
+}
+>>>>>>> 988c987395c7770d53e44b8ae22bfe747ff727e3
 #dropdownMenu2{
   margin-right: 10px;
   font-size: 20px;
@@ -150,4 +111,12 @@ body {
 #bottom{
   margin-top: 50px;
   height: 40px;
+<<<<<<< HEAD
 }
+=======
+}
+
+nav {
+  margin-bottom: 20px;
+}
+>>>>>>> 988c987395c7770d53e44b8ae22bfe747ff727e3
