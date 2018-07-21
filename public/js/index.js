@@ -10,6 +10,10 @@ $(document).ready(function () {
             language: $("#languageOptions").val(),
             codeBlock: $("#codeBlock").val(),
             description: $("#description").val(),
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 34fb8b7d5659f5408d1fecd1bab22a3ac405f20f
         };
 
         $.ajax({
@@ -105,8 +109,14 @@ $(document).ready(function () {
     });
 
     
+<<<<<<< HEAD
     $(document).on("click", "#makeSnippet", function (event) {
         $("#makeSnippetModal").show();
+=======
+    $(document).on("click", "#makeSnippet", function () {
+        $("#makeSnippetModal").show();
+        
+>>>>>>> 34fb8b7d5659f5408d1fecd1bab22a3ac405f20f
     });
     
 });
