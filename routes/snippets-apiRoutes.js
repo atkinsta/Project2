@@ -6,12 +6,13 @@ module.exports = function (app) {
     app.get("/api/snippets", (req, res) => {
         //get all snippets
         db.Snippet.findAll({
-            
+
             include: [
                 {
                     model: db.User,
                     attributes: {
-                        exclude: ["fullName", "password"]}
+                        exclude: ["fullName", "password"]
+                    }
                 },
                 { model: db.Comment, include: [db.User] }]
 
@@ -19,12 +20,12 @@ module.exports = function (app) {
             res.json(allSnippets);
         });
     });
-    
+
     app.get("/home", isAuthenticated, (req, res) => {
         db.Snippet.findAll({
-            include: [{all: true}]
+            include: [{ all: true }]
         }).then(data => {
-            res.render("index", {snippets: data});
+            res.render("index", { snippets: data });
         });
     });
 
@@ -32,7 +33,8 @@ module.exports = function (app) {
         //get all snippets by author
         db.User.findAll({
             attributes: {
-                exclude: [fullName, password]},
+                exclude: [fullName, password]
+            },
             where: {
                 username: req.params.username,
 
@@ -62,11 +64,11 @@ module.exports = function (app) {
 
     app.post("/api/snippets", (req, res) => {
         db.Snippet.create({
-           title: req.body.title,
-           language: req.body.language,
-           codeBlock: req.body.codeBlock,
-           description: req.body.description,
-           UserId: req.user.id 
+            title: req.body.title,
+            language: req.body.language,
+            codeBlock: req.body.codeBlock,
+            description: req.body.description,
+            UserId: req.user.id
         }).then(newSnippet => {
             res.json(newSnippet);
         });

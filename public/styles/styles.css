@@ -10,6 +10,7 @@ body {
   color: whitesmoke;
 }
 .card {
+  margin-bottom: 15px;
   background-color: rgb(60, 71, 80);
   color: whitesmoke;
   border-radius: 25px;
@@ -32,13 +33,13 @@ body {
 .title {
   color: white;
 }
-.col-md-9 {
+.snippets {
   width: 90%;
   padding: 5px;
   margin: 0px;
   overflow: auto;
 }
-.card-body comments {
+#comments {
   color: rgb(202, 144, 58);
   width: 80%;
   border-radius: 25px;
@@ -69,10 +70,19 @@ body {
   color: whitesmoke;
 }
 
+/* scrolling comments box */
+.comments {
+  height: 300px;
+  overflow-x: scroll;
+}
 #dropdownMenu2{
   margin-right: 10px;
 }
 #bottom{
   margin-top: 50px;
   height: 40px;
+}
+
+nav {
+  margin-bottom: 20px;
 }
