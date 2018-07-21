@@ -7,7 +7,8 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1, 255]
+                min: 1,
+                max: 255
             }
         },
         username: {

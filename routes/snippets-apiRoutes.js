@@ -74,6 +74,7 @@ module.exports = function (app) {
         });
     });
 
+    // Post comments
     app.post("/api/comments", (req, res) => {
         db.Comment.create({
             comment: req.body.comment,
@@ -82,6 +83,13 @@ module.exports = function (app) {
             SnippetId: req.body.SnippetId
         }).then(newComment => {
             res.json(newComment);
+        });
+    });
+
+    // get comments
+    app.get("/api/comments", (req,res) => {
+        db.Comment.findAll({}).then (allComments => {
+            res.json(allComments);
         });
     });
 
