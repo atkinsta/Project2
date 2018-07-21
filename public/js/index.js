@@ -10,8 +10,6 @@ $(document).ready(function () {
             language: $("#languageOptions").val(),
             codeBlock: $("#codeBlock").val(),
             description: $("#description").val(),
-            // Needs to pull in current user
-            UserId: 1
         };
 
         $.ajax({
@@ -108,8 +106,7 @@ $(document).ready(function () {
 
     
     $(document).on("click", "#makeSnippet", function (event) {
-        $("#makeSnippetModal").modal("toggle");
-        
+        $("#makeSnippetModal").show();
     });
     
 });
