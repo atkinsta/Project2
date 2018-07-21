@@ -10,7 +10,7 @@ body {
   color: whitesmoke;
 }
 .card {
-  margin-top: 15px;
+  margin-bottom: 15px;
   background-color: rgb(60, 71, 80);
   color: whitesmoke;
   border-radius: 25px;
@@ -81,4 +81,8 @@ body {
 #bottom{
   margin-top: 50px;
   height: 40px;
+}
+
+nav {
+  margin-bottom: 20px;
 }
