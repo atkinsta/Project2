@@ -108,7 +108,8 @@ $(document).ready(function () {
 
     
     $(document).on("click", "#makeSnippet", function (event) {
-        $("#makeSnippetModal").modal("toggle");
+        // $("#makeSnippetModal").modal("toggle");
+        $("#makeSnippetModal").show();
         
     });
     
