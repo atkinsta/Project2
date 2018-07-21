@@ -60,13 +60,6 @@ module.exports = function (app) {
         });
     });
 
-    // app.get("/api/snippets/:sort", (req, res) => {
-    //     //get all snippets, sort by (date/hot/most likes)
-    //     .then(sort => {
-    //         res.json(sort);
-    //     });
-    // });
-
     app.post("/api/snippets", (req, res) => {
         db.Snippet.create(req.body).then(newSnippet => {
             res.json(newSnippet);

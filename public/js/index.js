@@ -93,4 +93,8 @@ $(document).ready(function() {
             method: "PUT",
         });
     });
+
+    $(document).on("click", "#makeSnippet", function (event) {
+        $("#makeSnippetModal").show();
+    });
 });
