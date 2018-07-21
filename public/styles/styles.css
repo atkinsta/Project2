@@ -142,6 +142,10 @@ body {
   text-shadow: 1px 1px 10px black;
 }
 
+.navbar{
+  background-color: rgb(60, 71, 80) !important;
+}
+
 /* Footer */
 #bottom{
   margin-top: 50px;
