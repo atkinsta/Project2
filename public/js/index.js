@@ -10,7 +10,6 @@ $(document).ready(function () {
             language: $("#languageOptions").val(),
             codeBlock: $("#codeBlock").val(),
             description: $("#description").val(),
-            
         };
 
         $.ajax({
@@ -105,10 +104,8 @@ $(document).ready(function () {
         });
     });
 
-    
     $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
-        
     });
     
 });
