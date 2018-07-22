@@ -85,10 +85,10 @@
                     <p class="card-text text-muted">{{language}}</p>
                     <p class="card-text" id="snippet-description">{{description}}</p>
 
-                    <form>
-                        <div class="form-group">
+                    <form class="commentForm">
+                        <div class="form-group commentFormText">
                             <label for="commentText">Comment</label>
-                            <input type="text" class="form-control commentText">
+                            <input type="text" class="form-control commentText" name="comment">
                         </div>
                         <button class="btn btn-warning submitComment" data-id={{this.id}}>Comment</button>
                     </form>
