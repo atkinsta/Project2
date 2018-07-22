@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    $(document).on("click", "#home", function() {
-        location.href = "/";
+$(document).ready(function () {
+    $(document).on("click", "#home", function () {
+        location.href = "/home";
     });
 
     $.get("/api/users/:username",function(data) {
@@ -30,7 +30,10 @@ $(document).ready(function() {
     $(document).on("click", ".langSelect", function() {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
-            method: "GET"
+            method: "GET",
+        }).then(function (data) {
+            console.log(data);
+            
         });
     });
 
@@ -127,13 +130,6 @@ $(document).ready(function() {
         $("#alert .msg").text(err.reponseJSON);
         $("#alert").fadeIn(500);
     }
-
-    $(document).on("click", ".like", function() {
-        $.ajax({
-            url: "/api/snippets/like/" + $(this).attr("data-id"),
-            method: "PUT"
-        });
-    });
 
     $(document).on("click", "#makeSnippet", function() {
         $("#makeSnippetModal").show();
