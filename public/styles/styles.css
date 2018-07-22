@@ -98,3 +98,34 @@ nav {
 .btn.btn-info.btn-lg {
   margin: 20%;
 }
+
+
+/* Menu Bar */
+#dropdownMenu2{
+  margin-right: 10px;
+  font-size: 20px;
+  text-shadow: 1px 1px 10px black;
+}
+
+#bar{
+  color:white;
+  font-size: 20px;
+  text-shadow: 1px 1px 10px black;
+}
+.navbar-brand{
+  font-size:28px;
+  font-family: "Permanent Marker", cursive;
+  text-shadow: 1px 1px 10px black;
+}
+
+.navbar{
+  background-color: rgb(60, 71, 80) !important;
+}
+
+/* Footer */
+#bottom{
+  margin-top: 50px;
+  height: 40px;
+  position: relative;
+  bottom: -100px;  
+}
