@@ -6,7 +6,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-size: 100% 100%; */
 }
 .col-8.offset-2.form {
   background-color: rgb(60, 71, 80);
@@ -31,6 +30,11 @@ body {
   height: 700px;
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
+}
+
+.userField{
+  color: whitesmoke;
+  font-size: 20px;
 }
 .text {
   text-align: center;
@@ -98,7 +102,6 @@ nav {
 .btn.btn-info.btn-lg {
   margin: 20%;
 }
-
 
 /* Menu Bar */
 #dropdownMenu2{
