@@ -13,29 +13,26 @@ body {
   color: whitesmoke;
 }
 .card {
-  margin-bottom: 15px;
+  margin: 15px auto;
   background-color: rgb(60, 71, 80);
   color: whitesmoke;
   border-radius: 25px;
 }
 
 .sidebar {
-  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  padding: 2%;
   background-color: rgb(60, 71, 80);
-  /* position: fixed; */
-  /* width: 20%; */
+  border-radius: 25px;
 }
-.sidebar-body {
+/* .sidebar-body {
   width: 90%;
   height: 700px;
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
-}
-
-.userField{
-  color: whitesmoke;
-  font-size: 20px;
-}
+} */
 .text {
   text-align: center;
   color: rgb(202, 144, 58);
@@ -131,4 +128,13 @@ nav {
   height: 40px;
   position: relative;
   bottom: -100px;  
+}
+
+.container{
+  width: 80%;
+  margin-left: 20%;
+}
+
+.btn.btn-info.btn-lg {
+  margin: auto;
 }

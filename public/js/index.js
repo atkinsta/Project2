@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.get("/api/users/:username",function(data) {
         $(".userField").html(data.username);
     });
-    
+
     $(document).on("click", "#submitSnippet", function() {
         event.preventDefault();
         let newSnippet = {
@@ -37,18 +37,22 @@ $(document).ready(function() {
     $(document).on("click", ".submitComment", function() {
         event.preventDefault();
 
-        var comment = $(".commentText")
-            .val()
-            .trim();
+    
+        var commentP = $(this).parent();
+        var commentC = commentP.children();
+        var commentCC = commentC.children(".commentText");
+        var commentText = commentCC.val();
         var id = $(this).data("id");
+        
 
-        console.log("comment: ", comment, " -- id: ", id);
+        console.log("comment: ", commentText, " -- id: ", id);
 
         $.ajax({
             url: "/api/comments",
             method: "POST",
-            data: {
-                comment: comment,
+            data: 
+            {
+                comment: commentText, 
                 SnippetId: id
             }
         }).then(function(newComment) {
