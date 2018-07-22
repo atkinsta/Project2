@@ -1,37 +1,45 @@
-$(document).ready(function () {
-    $(document).on("click", "#home", function () {
+$(document).ready(function() {
+    $(document).on("click", "#home", function() {
         location.href = "/";
     });
 
-    $(document).on("click", "#submitSnippet", function () {
+    $.get("/api/users/:username",function(data) {
+        $(".userField").html(data.username);
+    });
+    
+    $(document).on("click", "#submitSnippet", function() {
         event.preventDefault();
         let newSnippet = {
-            title: $("#title").val().trim(),
+            title: $("#title")
+                .val()
+                .trim(),
             language: $("#languageOptions").val(),
             codeBlock: $("#codeBlock").val(),
-            description: $("#description").val(),
+            description: $("#description").val()
         };
 
         $.ajax({
             url: "/api/snippets",
             method: "POST",
             data: newSnippet
-        }).then(function () {
+        }).then(function() {
             location.reload();
         });
     });
 
-    $(document).on("click", ".langSelect", function () {
+    $(document).on("click", ".langSelect", function() {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
-            method: "GET",
+            method: "GET"
         });
     });
 
-    $(document).on("click", ".submitComment", function () {
+    $(document).on("click", ".submitComment", function() {
         event.preventDefault();
 
-        var comment = $(".commentText").val().trim();
+        var comment = $(".commentText")
+            .val()
+            .trim();
         var id = $(this).data("id");
 
         console.log("comment: ", comment, " -- id: ", id);
@@ -40,25 +48,28 @@ $(document).ready(function () {
             url: "/api/comments",
             method: "POST",
             data: {
-                comment: comment, 
+                comment: comment,
                 SnippetId: id
             }
-        }).then(function (newComment) {
+        }).then(function(newComment) {
             $(".commentText").val("");
-            
-            var html = "<p>"+ newComment.comment + " - - " + newComment.username + "</p>";
-            $("#"+newComment.SnippetId+"").append(html);
 
+            var html =
+        "<p>" + newComment.comment + " - - " + newComment.username + "</p>";
+            $("#" + newComment.SnippetId + "").append(html);
         });
-
     });
 
     var loginForm = $("form.login");
-    loginForm.on("submit", function (event) {
+    loginForm.on("submit", function(event) {
         event.preventDefault();
         var newLogin = {
-            username: $("input#userField").val().trim(),
-            password: $("input#passwordField").val().trim()
+            username: $("input#userField")
+                .val()
+                .trim(),
+            password: $("input#passwordField")
+                .val()
+                .trim()
         };
 
         if (!newLogin.username || !newLogin.password) {
@@ -68,21 +79,29 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/login",
             method: "POST",
-            data: newLogin,
-        }).then(function (data) {
-            window.location.replace(data);
-        }).catch(function (err) {
-            console.log(err);
-        });
+            data: newLogin
+        })
+            .then(function(data) {
+                window.location.replace(data);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
     });
 
     var signupForm = $("form.signup");
-    signupForm.on("submit", function (event) {
+    signupForm.on("submit", function(event) {
         event.preventDefault();
         var newUser = {
-            username: $("input#newUsername").val().trim(),
-            fullName: $("input#newFullname").val().trim(),
-            password: $("input#newPassword").val().trim()
+            username: $("input#newUsername")
+                .val()
+                .trim(),
+            fullName: $("input#newFullname")
+                .val()
+                .trim(),
+            password: $("input#newPassword")
+                .val()
+                .trim()
         };
 
         if (!newUser.username || !newUser.password) {
@@ -93,9 +112,11 @@ $(document).ready(function () {
             url: "/api/signup",
             method: "POST",
             data: newUser
-        }).then(function (data) {
-            window.location.replace(data);
-        }).catch(handleLoginErr);
+        })
+            .then(function(data) {
+                window.location.replace(data);
+            })
+            .catch(handleLoginErr);
     });
 
     function handleLoginErr(err) {
@@ -103,16 +124,14 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     }
 
-    $(document).on("click", ".like", function () {
+    $(document).on("click", ".like", function() {
         $.ajax({
             url: "/api/snippets/like/" + $(this).attr("data-id"),
-            method: "PUT",
+            method: "PUT"
         });
     });
 
-    $(document).on("click", "#makeSnippet", function () {
+    $(document).on("click", "#makeSnippet", function() {
         $("#makeSnippetModal").show();
     });
-
-
 });
