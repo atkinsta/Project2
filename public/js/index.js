@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $(document).on("click", "#home", function () {
-        location.href = "/";
+        location.href = "/home";
     });
 
     $(document).on("click", "#submitSnippet", function () {
@@ -25,6 +25,9 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
             method: "GET",
+        }).then(function (data) {
+            console.log(data);
+            
         });
     });
 
@@ -109,12 +112,7 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     }
 
-    $(document).on("click", ".like", function () {
-        $.ajax({
-            url: "/api/snippets/like/" + $(this).attr("data-id"),
-            method: "PUT",
-        });
-    });
+   
 
     $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
