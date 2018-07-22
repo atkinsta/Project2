@@ -122,8 +122,19 @@ nav {
 
 /* Footer */
 #bottom{
-  margin-top: 50px;
+  margin-top: 80px;
   height: 40px;
-  position: relative;
-  bottom: -100px;  
+  background-color: rgb(60, 71, 80);
+  
 }
+
+/* body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #FFCC00;
+}
+
+html {
+  height: 100%;
+} */
