@@ -1,50 +1,52 @@
-<div id="modal">
-    <div class="modal" tabindex="-1" role="dialog" id="makeSnippetModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Make a post</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form class="clearfix mb-4">
-                        <div class="form-group">
-                            <label for="example-title">Title of snippet</label>
-                            <input type="text" id="title" class="form-control" aria-describedby="example-text" placeholder="Enter Code" style="height:50px"></input>
-                        </div>
-                        <div class="form-group">
-                            <label for="example-code">Code</label>
-                            <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="example-description">Description</label>
-                            <textarea class="form-control" id="description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
-                        </div>
-                        <div class="dropdown">
-                            <label for="languageOptions">Code Language</label>
-                            <select class="form-control required" id="languageOptions" style="width: 100%">
-                                <option value="">Select an option</option>
-                                <option value="java">Java</option>
-                                <option value="cpp">C++</option>
-                                <option value="csharp">C#</option>
-                                <option value="javascript">JavaScript</option>
-                                <option value="css">CSS</option>
-                                <option value="json">JSON</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
+{{!-- modal --}}
+    
+<div class="modal" tabindex="-1" role="dialog" id="makeSnippetModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Post a Snippet</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="clearfix mb-4">
+                    <div class="form-group">
+                        <label for="example-title">Title</label>
+                        <input type="text" id="title" class="form-control" aria-describedby="example-text" placeholder="Title" style="height:50px"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-code">Code</label>
+                        <textarea type="text" id="codeBlock" class="form-control" aria-describedby="example-text" placeholder="Enter Code"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-description">Description</label>
+                        <textarea class="form-control" id="description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
+                    </div>
+                    <div class="dropdown">
+                        <label for="languageOptions">Code Language</label>
+                        <select class="form-control required" id="languageOptions" style="width: 100%">
+                            <option value="">Select Language</option>
+                            <option value="java">Java</option>
+                            <option value="cpp">C++</option>
+                            <option value="csharp">C#</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="css">CSS</option>
+                            <option value="json">JSON</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
 
-                    <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                </div>
+                <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+    
 
 
 <div class="container">
@@ -59,9 +61,6 @@
                         <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
                         </center>
             </div>
-
-            {{!-- Sidebar As Card --}}
-
         </div>
 
 
@@ -89,9 +88,9 @@
                     <form>
                         <div class="form-group">
                             <label for="commentText">Comment</label>
-                            <input type="text" class="form-control" id="commentText" data-id={{this.id}}>
+                            <input type="text" class="form-control commentText">
                         </div>
-                        <button id="submitComment" class="btn btn-warning">Comment</button>
+                        <button class="btn btn-warning submitComment" data-id={{this.id}}>Comment</button>
                     </form>
 
 

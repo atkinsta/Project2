@@ -28,17 +28,23 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", "#submitComment", function () {
+    $(document).on("click", ".submitComment", function () {
         event.preventDefault();
+
+        var comment = $(".commentText").val().trim();
+        var id = $(this).data("id");
+
+        console.log("comment: ", comment, " -- id: ", id);
+
         $.ajax({
             url: "/api/comments",
             method: "POST",
             data: {
-                comment: $("#commentText").val().trim(), SnippetId:
-                    $("#commentText").data("id")
+                comment: comment, 
+                SnippetId: id
             }
         }).then(function (newComment) {
-            $("#commentText").val("");
+            $(".commentText").val("");
             
             var html = "<p>"+ newComment.comment + " - - " + newComment.username + "</p>";
             $("#"+newComment.SnippetId+"").append(html);
@@ -107,5 +113,6 @@ $(document).ready(function () {
     $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
     });
-    
+
+
 });
