@@ -47,30 +47,27 @@
 </div>
 
     
+ {{!-- Floating Sidebar --}}
+        
+<div class="sidebar">
+    
+    {{!-- <h5 class="userField">{{this.username}}</h5> 
+    --}}
+        
+    <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+        
+</div>
 
 
 <div class="container">
     <div class="row">
 
-        {{!-- Sidebar --}}
-        <div class="col-md-3">
-            <div class="sidebar">
-                
-                <h3 class="userField">{{this.username}}</h5>
-                    <center>
-                        <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
-                        <center>
-            </div>
-        </div>
-
-
-
         {{!-- Snippet Cards --}}
-        <div class="col-md-9 snippets">
+        <div class="col-md-12 snippets">
 
 
             {{#each snippets}}
-            <div class="card" style="width: 100%">
+            <div class="card w-75" >
                 <div class="card-body">
                     <h5 class="card-title">
                         {{this.title}}
