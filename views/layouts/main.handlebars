@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset="utf-8"> 
+  <meta charset="utf-8">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -18,52 +18,60 @@
   <title>Snippet!</title>
 </head>
 
-<body>
-  {{!--MAIN TITLE BAR --}}
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <a class="navbar-brand" href="#">Snippets</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
+<body> 
+{{!--MAIN TITLE BAR --}}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Snippets </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" id="bar">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-home"></i>Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li>
+        {{!-- Dropdown menu --}}
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-code"></i> Languages
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" href="#" type="button">Javascript</button>
+            <button class="dropdown-item" href="#" type="button">Jquery</button>
+            <button class="dropdown-item" href="#" type="button">Html</button>
+            <button class="dropdown-item" href="#" type="button">Node</button>
+          </div>
+        </div>
+      </li>
+      <li>
+        {{!--
+        <div class="collapse navbar-collapse"> --}}
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-key"></i>Logon
+              <span class="sr-only">(current)</span>
+            </a>
+            {{!-- </div> --}}
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Logon</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Logon</a>
-        </li>
-      </ul>
-    </div>
+    </ul>
+  </div>
 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        Dropdown
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Action</button>
-        <button class="dropdown-item" type="button">Another action</button>
-        <button class="dropdown-item" type="button">Something else here</button>
-      </div>
-    </div>
-  </nav>
+</nav>
 
-
-  {{{body}}}
-
-  <footer>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="bottom">
-    </nav>
-  </footer>
+{{{body}}}
 </body>
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="bottom">
+  </nav>
+</footer>
+
 </html>
