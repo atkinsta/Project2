@@ -30,8 +30,9 @@ module.exports = function (app) {
         }
         else {
             res.json({
-                email: req.user.email,
-                id: req.user.id
+                username: req.user.username,
+                id: req.user.id,
+                fullName: req.user.fullName
             });
         }
     });
