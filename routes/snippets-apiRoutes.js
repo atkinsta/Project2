@@ -40,7 +40,26 @@ module.exports = function (app) {
                 },
                 { model: db.Comment, include: [db.User] }]
         }).then(language => {
-            // res.json(language);
+            res.json(language);
+        });
+    });
+
+    app.get("/snippets/:language", (req, res) => {
+        //get all snippets by langage
+        var language = req.params.language;
+        db.Snippet.findAll({
+            where: {
+                language: language
+            },
+            include: [
+                {
+                    model: db.User,
+                    attributes: {
+                        exclude: ["fullName", "password"]
+                    }
+                },
+                { model: db.Comment, include: [db.User] }]
+        }).then(language => {
             res.render("index",{snippets:language});
         });
     });
