@@ -3,7 +3,12 @@ $(document).ready(function () {
         location.href = "/home";
     });   
 
-    $(document).on("click", "#submitSnippet", function() {
+    $(document).on("click", "#logoff", function () {
+        location.href = "/logout";
+    });
+
+    // POST to submit new snippet
+    $(document).on("click", "#submitSnippet", function () {
         event.preventDefault();
         let newSnippet = {
             title: $("#title")
@@ -23,7 +28,8 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", ".langSelect", function() {
+    // GET to get filtered languages
+    $(document).on("click", ".langSelect", function () {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
             method: "GET",
@@ -33,10 +39,11 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", ".submitComment", function() {
+    // POST new comment on submitComment button click
+    $(document).on("click", ".submitComment", function () {
         event.preventDefault();
 
-    
+        // Nav parent/children to get comment text for specific Snippet
         var commentP = $(this).parent();
         var commentC = commentP.children();
         var commentCC = commentC.children(".commentText");
@@ -63,6 +70,7 @@ $(document).ready(function () {
         });
     });
 
+    // login form
     var loginForm = $("form.login");
     loginForm.on("submit", function(event) {
         event.preventDefault();
@@ -92,6 +100,7 @@ $(document).ready(function () {
             });
     });
 
+    // signup form
     var signupForm = $("form.signup");
     signupForm.on("submit", function(event) {
         event.preventDefault();
@@ -127,7 +136,9 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     }
 
-    $(document).on("click", "#makeSnippet", function() {
+   
+    // Open snippet modal
+    $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
     });
 });

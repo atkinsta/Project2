@@ -1,5 +1,5 @@
 {{!-- modal --}}
-    
+
 <div class="modal" tabindex="-1" role="dialog" id="makeSnippetModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -46,10 +46,10 @@
     </div>
 </div>
 
-    
- {{!-- Floating Sidebar --}}
-        
+
+{{!-- Floating Sidebar --}} {{!--
 <div class="sidebar">
+<<<<<<< HEAD
     
     {{!-- <h5 class="userField">{{this.username}}</h5> 
     --}}
@@ -69,19 +69,38 @@
         </div>
       </li>
         <br><br>
+=======
+
+    <h5 class="userField">{{this.username}}</h5>
+
+
+>>>>>>> 647a34014ea8af967a388ad6f1c5c3c662567a95
     <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
-        
-</div>
+
+</div> --}}
 
 
-<div class="container">
+<div class="container ">
     <div class="row">
 
+        {{!-- floating post button --}}
+        <div class="col-md-3">
+            <div class="sidebar">
+
+                {{!--
+                <h5 class="userField">{{this.username}}</h5>
+                --}}
+
+                <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+
+            </div>
+        </div>
+
         {{!-- Snippet Cards --}}
-        <div class="col-md-12 snippets">
+        <div class="col-md-9 snippets">
 
             {{#each snippets}}
-            <div class="card w-75" >
+            <div class="card w-75">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{this.title}}
@@ -123,4 +142,9 @@
            
         </div>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+
+</div>
+>>>>>>> 647a34014ea8af967a388ad6f1c5c3c662567a95
