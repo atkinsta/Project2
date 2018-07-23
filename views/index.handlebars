@@ -102,7 +102,7 @@
                     </h5>
                     
                     <h6 class="card-subtitle mb-2 text-muted">
-                        {{this.User.username}}
+                        <a href="/users/{{this.User.username}}"> {{this.User.username}}</a>
                     </h6>
 
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
@@ -124,7 +124,7 @@
                     <div class="comments" id={{this.id}}>
 
                         {{!-- JSON rendered on load --}} {{#each this.Comments}}
-                        <p>{{comment}} - - {{username}}</p>
+                        <p>{{comment}} - - <a href="/users/{{username}}"> {{username}}</a></p>
                         {{/each}} {{!-- New comments will append here --}}
 
                     </div>
