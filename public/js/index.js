@@ -1,14 +1,14 @@
-$(document).ready(function () {
-    $(document).on("click", "#home", function () {
+$(document).ready(function() {
+    $(document).on("click", "#home", function() {
         location.href = "/home";
-    });   
+    });
 
-    $(document).on("click", "#logoff", function () {
+    $(document).on("click", "#logoff", function() {
         location.href = "/logout";
     });
 
     // POST to submit new snippet
-    $(document).on("click", "#submitSnippet", function () {
+    $(document).on("click", "#submitSnippet", function() {
         event.preventDefault();
         let newSnippet = {
             title: $("#title")
@@ -29,18 +29,12 @@ $(document).ready(function () {
     });
 
     // GET to get filtered languages
-    $(document).on("click", ".langSelect", function () {
-        $.ajax({
-            url: "/api/snippets/" + $(this).val(),
-            method: "GET",
-        }).then(function (data) {
-            console.log(data);
-            $(".snippets").html(data);
-        });
+    $(document).on("click", ".langSelect", function() {
+        location.href = "/api/snippets/" + $(this).val();
     });
 
     // POST new comment on submitComment button click
-    $(document).on("click", ".submitComment", function () {
+    $(document).on("click", ".submitComment", function() {
         event.preventDefault();
 
         // Nav parent/children to get comment text for specific Snippet
@@ -49,16 +43,14 @@ $(document).ready(function () {
         var commentCC = commentC.children(".commentText");
         var commentText = commentCC.val();
         var id = $(this).data("id");
-        
 
         console.log("comment: ", commentText, " -- id: ", id);
 
         $.ajax({
             url: "/api/comments",
             method: "POST",
-            data: 
-            {
-                comment: commentText, 
+            data: {
+                comment: commentText,
                 SnippetId: id
             }
         }).then(function(newComment) {
@@ -136,9 +128,8 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     }
 
-   
     // Open snippet modal
-    $(document).on("click", "#makeSnippet", function () {
+    $(document).on("click", "#makeSnippet", function() {
         $("#makeSnippetModal").show();
     });
 });
