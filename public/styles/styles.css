@@ -41,12 +41,7 @@ body {
 .title {
   color: white;
 }
-.snippets {
-  width: 90%;
-  padding: 5px;
-  margin: 0px;
-  overflow: auto;
-}
+
 #comments {
   color: rgb(202, 144, 58);
   width: 80%;
@@ -80,7 +75,7 @@ body {
 
 /* scrolling comments box */
 .comments {
-  height: 200px;
+  max-height: 200px;
   overflow-x: scroll;
 }
 #dropdownMenu2 {
@@ -132,10 +127,10 @@ nav {
   bottom: -100px;  
 }
 
-.container{
+/* .snippetContainer{
   width: 80%;
   margin-left: 20%;
-}
+} */
 
 .btn.btn-info.btn-lg {
   margin: auto;
