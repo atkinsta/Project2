@@ -33,7 +33,6 @@ $(document).ready(function() {
         event.preventDefault();
         var langtype = $(this).val();
         location.href = "/snippets/" + $(this).val(); 
-        
         $(".langhead").text(langtype);
     });
 
