@@ -88,7 +88,7 @@ $(document).ready(function() {
                 window.location.replace(data);
             })
             .catch(function(err) {
-                console.log(err);
+                handleLoginErr(err, "Invalid username or password.");
             });
     });
 
@@ -118,13 +118,20 @@ $(document).ready(function() {
             data: newUser
         })
             .then(function(data) {
-                window.location.replace(data);
+                if (data.errors) {
+                    handleLoginErr("That username is already taken!");
+                }
+                else {
+                    window.location.replace(data);
+                }
             })
-            .catch(handleLoginErr);
+            .catch(function(err) {
+                handleLoginErr("That username is taken!");
+            });
     });
 
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.reponseJSON);
+    function handleLoginErr(text) {
+        $("#alert .msg").text(text);
         $("#alert").fadeIn(500);
     }
 
