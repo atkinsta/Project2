@@ -128,8 +128,9 @@ module.exports = function (app) {
             sortable.forEach(lang => {
                 langArray.push(lang[0]);
             });
+            
+            req.trending = langArray;
             next();
-            req.trending = dataMap;
         });
     }
 
