@@ -24,7 +24,7 @@ module.exports = function (app) {
     app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex);
 
 
-    app.get("/posts/:langage", (req, res) => {
+    app.get("/api/snippets/:language", (req, res) => {
         //get all snippets by langage
         var language = req.params.language;
         db.Snippet.findAll({
