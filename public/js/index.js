@@ -30,7 +30,7 @@ $(document).ready(function() {
 
     // GET to get filtered languages
     $(document).on("click", ".langSelect", function() {
-        location.href = "/api/snippets/" + $(this).val();
+        location.href = "/snippets/" + $(this).val();
     });
 
     // POST new comment on submitComment button click
