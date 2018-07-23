@@ -1,6 +1,10 @@
 $(document).ready(function () {
     $(document).on("click", "#home", function () {
-        location.href = "/";
+        location.href = "/home";
+    });
+
+    $(document).on("click", "#logoff", function () {
+        location.href = "/logout";
     });
 
     $(document).on("click", "#submitSnippet", function () {
@@ -25,20 +29,35 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
             method: "GET",
+        }).then(function (data) {
+            console.log(data);
+            
         });
     });
 
-    $(document).on("click", "#submitComment", function () {
+    $(document).on("click", ".submitComment", function () {
         event.preventDefault();
+
+    
+        var commentP = $(this).parent();
+        var commentC = commentP.children();
+        var commentCC = commentC.children(".commentText");
+        var commentText = commentCC.val();
+        var id = $(this).data("id");
+        
+
+        console.log("comment: ", commentText, " -- id: ", id);
+
         $.ajax({
             url: "/api/comments",
             method: "POST",
-            data: {
-                comment: $("#commentText").val().trim(), SnippetId:
-                    $("#commentText").data("id")
+            data: 
+            {
+                comment: commentText, 
+                SnippetId: id
             }
         }).then(function (newComment) {
-            $("#commentText").val("");
+            $(".commentText").val("");
             
             var html = "<p>"+ newComment.comment + " - - " + newComment.username + "</p>";
             $("#"+newComment.SnippetId+"").append(html);
@@ -97,15 +116,11 @@ $(document).ready(function () {
         $("#alert").fadeIn(500);
     }
 
-    $(document).on("click", ".like", function () {
-        $.ajax({
-            url: "/api/snippets/like/" + $(this).attr("data-id"),
-            method: "PUT",
-        });
-    });
+   
 
     $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
     });
-    
+
+
 });
