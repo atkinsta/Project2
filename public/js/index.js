@@ -3,10 +3,14 @@ $(document).ready(function () {
         location.href = "/home";
     });
 
+<<<<<<< HEAD
     $(document).on("click", "#logoff", function () {
         location.href = "/logout";
     });
 
+=======
+    // POST to submit new snippet
+>>>>>>> cd67d66eccd348ae8d7a6770d2178ef348aefa86
     $(document).on("click", "#submitSnippet", function () {
         event.preventDefault();
         let newSnippet = {
@@ -25,6 +29,7 @@ $(document).ready(function () {
         });
     });
 
+    // GET to get filtered languages
     $(document).on("click", ".langSelect", function () {
         $.ajax({
             url: "/api/snippets/" + $(this).val(),
@@ -35,10 +40,11 @@ $(document).ready(function () {
         });
     });
 
+    // POST new comment on submitComment button click
     $(document).on("click", ".submitComment", function () {
         event.preventDefault();
 
-    
+        // Nav parent/children to get comment text for specific Snippet
         var commentP = $(this).parent();
         var commentC = commentP.children();
         var commentCC = commentC.children(".commentText");
@@ -66,6 +72,7 @@ $(document).ready(function () {
 
     });
 
+    // login form
     var loginForm = $("form.login");
     loginForm.on("submit", function (event) {
         event.preventDefault();
@@ -89,6 +96,7 @@ $(document).ready(function () {
         });
     });
 
+    // signup form
     var signupForm = $("form.signup");
     signupForm.on("submit", function (event) {
         event.preventDefault();
@@ -117,7 +125,7 @@ $(document).ready(function () {
     }
 
    
-
+    // Open snippet modal
     $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
     });
