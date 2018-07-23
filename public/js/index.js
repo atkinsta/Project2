@@ -31,9 +31,7 @@ $(document).ready(function() {
     // GET to get filtered languages
     $(document).on("click", ".langSelect", function(event) {
         event.preventDefault();
-        var langtype = $(this).val();
         location.href = "/snippets/" + $(this).val(); 
-        $(".langhead").text(langtype);
     });
 
     // POST new comment on submitComment button click
