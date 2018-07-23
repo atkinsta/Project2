@@ -3,6 +3,10 @@ $(document).ready(function () {
         location.href = "/home";
     });
 
+    $(document).on("click", "#logoff", function () {
+        location.href = "/logout";
+    });
+
     // POST to submit new snippet
     $(document).on("click", "#submitSnippet", function () {
         event.preventDefault();
