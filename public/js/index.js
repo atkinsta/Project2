@@ -29,9 +29,8 @@ $(document).ready(function() {
     });
 
     // GET to get filtered languages
-    $(document).on("click", ".langSelect", function(event) {
-        event.preventDefault();
-        location.href = "/snippets/" + $(this).val(); 
+    $(document).on("click", ".langSelect", function() {
+        location.href = "/snippets/" + $(this).val();
     });
 
     // POST new comment on submitComment button click

@@ -21,49 +21,9 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex);
+    app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex); //Home render
 
-
-    app.get("/api/snippets/:language", (req, res) => {
-        //get all snippets by langage
-        var language = req.params.language;
-        db.Snippet.findAll({
-            where: {
-                language: language
-            },
-            include: [
-                {
-                    model: db.User,
-                    attributes: {
-                        exclude: ["fullName", "password"]
-                    }
-                },
-                { model: db.Comment, include: [db.User] }]
-        }).then(language => {
-            res.json(language);
-        });
-    });
-
-    app.get("/snippets/:language", (req, res) => {
-        //get all snippets by langage
-        var language = req.params.language;
-        db.Snippet.findAll({
-            where: {
-                language: language
-            },
-            include: [
-                {
-                    model: db.User,
-                    attributes: {
-                        exclude: ["fullName", "password"]
-                    }
-                },
-                { model: db.Comment, include: [db.User] }]
-        }).then(language => {
-            console.log(language);
-            res.render("index",{snippets:language});
-        });
-    });
+    app.get("/snippets/:language", isAuthenticated, findSnippetsbyLanguage, findTop, renderIndex); //Renders only that language
 
     app.post("/api/snippets", (req, res) => {
         db.Snippet.create({
@@ -129,6 +89,26 @@ module.exports = function (app) {
         });
     }
 
+    function findSnippetsbyLanguage(req, res, next) {
+        var language = req.params.language;
+        db.Snippet.findAll({
+            where: {
+                language: language
+            },
+            include: [
+                {
+                    model: db.User,
+                    attributes: {
+                        exclude: ["fullName", "password"]
+                    }
+                },
+                { model: db.Comment, include: [db.User] }]
+        }).then(language => {
+            req.snippets = language; 
+            next();
+        });
+    }
+
     function findTop(req, res, next) {
         db.Snippet.findAll({}).then(data => {
             
@@ -155,7 +135,6 @@ module.exports = function (app) {
     }
 
     function renderIndex(req, res) {
-        console.log("user:",req.user, "\n trending:",req.trending);
         res.render("index", {
             snippets: req.snippets,
             trending: req.trending,
