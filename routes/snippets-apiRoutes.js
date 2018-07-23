@@ -60,7 +60,8 @@ module.exports = function (app) {
                 },
                 { model: db.Comment, include: [db.User] }]
         }).then(language => {
-            res.render("index",{snippets:language});
+            console.log(language);
+            res.render("index",{snippets:language, langType: language[0].language});
         });
     });
 
