@@ -86,12 +86,10 @@
 
                 {{!-- Show Trending languages --}}
                 <div class="trending">
-                <h5>Trending:</h5>
-                <ol>
+                <h4>Trending:</h4>
                     {{#each trending}}
-                    <li>{{this}}</li>
+                        <h5><a href="/snippets/{{this}}"> {{this}} </a></h5>
                     {{/each}}
-                </ol>
                 </div>
 
                 {{!-- Dropdown menu all Languages--}}
@@ -130,8 +128,10 @@
 
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
-                    <p class="card-text text-muted">Language: {{language}}</p>
+                    <p class="card-text text-muted">Language: <a href="/snippets/{{language}}"> {{language}} </a></p>
                     <p class="card-text" id="snippet-description">Description: {{description}}</p>
+
+                    <hr>
 
                     <form class="commentForm">
                         <div class="form-group commentFormText">
