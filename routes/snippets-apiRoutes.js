@@ -128,12 +128,14 @@ module.exports = function (app) {
             sortable.forEach(lang => {
                 langArray.push(lang[0]);
             });
+            
+            req.trending = langArray;
             next();
-            req.trending = dataMap;
         });
     }
 
     function renderIndex(req, res) {
+        console.log("user:",req.user, "\n trending:",req.trending);
         res.render("index", {
             snippets: req.snippets,
             trending: req.trending,

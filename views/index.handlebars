@@ -45,13 +45,11 @@
         </div>
     </div>
 </div>
+{{!-- end modal --}}
 
 
-{{!-- Floating Sidebar --}} {{!--
-<div class="sidebar">
+
     
-    {{!-- <h5 class="userField">{{this.username}}</h5> 
-    --}}
     <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -69,32 +67,58 @@
       </li>
         <br><br>
 
-    <h5 class="userField">{{this.username}}</h5>
+    <h5 class="userField">{{this.user}}</h5>
 
-</div> 
+
 
 
 <div class="container ">
     <div class="row">
 
-        {{!-- floating post button --}}
-        <div class="col-md-3">
+        {{!-- floating Sidebar --}}
+        <div class="col-md-4 side">
             <div class="sidebar">
 
-                {{!--
-                <h5 class="userField">{{this.username}}</h5>
-                --}}
+                {{!-- Insert Logged in user name --}}
+                <h3 class="username">Welcome: {{user.username}} !</h3>
 
                 <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+
+                {{!-- Show Trending languages --}}
+                <div class="trending">
+                <h5>Trending:</h5>
+                <ol>
+                    {{#each trending}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ol>
+                </div>
+
+                {{!-- Dropdown menu all Languages--}}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-code"></i> Languages
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item langSelect" value="java" type="button">Java</button>
+                        <button class="dropdown-item langSelect" value="cpp" type="button">C++</button>
+                        <button class="dropdown-item langSelect" value="csharp" type="button">C#</button>
+                        <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
+                        <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
+                        <button class="dropdown-item langSelect" value="json" type="button">JSON</button>
+                    </div>
+                </div>
+
 
             </div>
         </div>
 
         {{!-- Snippet Cards --}}
-        <div class="col-md-9 snippets">
+        <div class="col-md-8 snippets">
 
             {{#each snippets}}
-            <div class="card w-75">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
                         {{this.title}}
@@ -106,8 +130,8 @@
 
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
-                    <p class="card-text text-muted">{{language}}</p>
-                    <p class="card-text" id="snippet-description">{{description}}</p>
+                    <p class="card-text text-muted">Language: {{language}}</p>
+                    <p class="card-text" id="snippet-description">Description: {{description}}</p>
 
                     <form class="commentForm">
                         <div class="form-group commentFormText">
