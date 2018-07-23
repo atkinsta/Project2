@@ -47,6 +47,8 @@
 </div>
 {{!-- end modal --}}
 <div class="container ">
+    {{!-- Header --}}
+    <div class="containerHeader">{{header}}</div>
     <div class="row">
 
         {{!-- floating Sidebar --}}
@@ -58,22 +60,23 @@
 
                 <button id="makeSnippet" type="button" class="btn btn-info btn-lg buttonstyle" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
                 <br>
-                <br>
-
-                {{!-- Show Trending languages --}}
+                <br> {{!-- Show Trending languages --}}
                 <div>
-                <h4 class="trending">Trending Languages:</h4>
+                    <h4 class="trending">Trending Languages:</h4>
                     {{#each trending}}
-                        <h5><em><a href="/snippets/{{this}}"> {{this}} </a></em></h5>
-                        <hr>
-                    {{/each}}
+                    <h5>
+                        <em>
+                            <a href="/snippets/{{this}}"> {{this}} </a>
+                        </em>
+                    </h5>
+                    <hr> {{/each}}
                 </div>
 
                 {{!-- Dropdown menu all Languages--}}
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle buttonstyle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-code"></i> All Languages
+                        <i class="fas fa-code"></i> Languages
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <button class="dropdown-item langSelect" value="java" type="button">Java</button>
@@ -88,7 +91,7 @@
 
 
             </div>
-            
+
         </div>
 
         {{!-- Snippet Cards --}}
@@ -100,14 +103,16 @@
                     <h5 class="card-title">
                         {{this.title}}
                     </h5>
-                    
+
                     <h6 class="card-subtitle mb-2 text-muted">
                         <a href="/users/{{this.User.username}}"> {{this.User.username}}</a>
                     </h6>
 
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
-                    <p class="card-text text-muted">Language: <a href="/snippets/{{language}}"> {{language}} </a></p>
+                    <p class="card-text text-muted">Language:
+                        <a href="/snippets/{{language}}"> {{language}} </a>
+                    </p>
                     <p class="card-text" id="snippet-description">Description: {{description}}</p>
 
                     <hr>
@@ -124,7 +129,9 @@
                     <div class="comments" id={{this.id}}>
 
                         {{!-- JSON rendered on load --}} {{#each this.Comments}}
-                        <p>{{comment}} - - <a href="/users/{{username}}"> {{username}}</a></p>
+                        <p>{{comment}} - -
+                            <a href="/users/{{username}}"> {{username}}</a>
+                        </p>
                         {{/each}} {{!-- New comments will append here --}}
 
                     </div>

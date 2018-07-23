@@ -186,3 +186,11 @@ a {
   color: #fe9800;
   text-shadow: 2px 2px 1px black;
 }
+
+/* header */
+.containerHeader{
+  margin-bottom: 15px;
+  background-color: rgba(50, 97, 129, 0.5);
+  color: whitesmoke;
+  border-radius: 50px;
+}
