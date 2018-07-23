@@ -87,7 +87,9 @@ $(document).ready(function() {
             .then(function(data) {
                 window.location.replace(data);
             })
-            .catch(handleLoginErr("Invalid username or password."));
+            .catch(function(err) {
+                handleLoginErr(err, "Invalid username or password.");
+            });
     });
 
     // signup form
@@ -117,16 +119,19 @@ $(document).ready(function() {
         })
             .then(function(data) {
                 if (data.errors) {
-                    handleLoginErr("That username is already taken!");
+                    handleLoginErr(data.errors, "That username is already taken!");
                 }
                 else {
                     window.location.replace(data);
                 }
             })
-            .catch(handleLoginErr("That username is taken!"));
+            .catch(function(err) {
+                handleLoginErr(err, "That username is taken!")
+            });
     });
 
-    function handleLoginErr(text) {
+    function handleLoginErr(err, text) {
+        console.log(err);
         $("#alert .msg").text(text);
         $("#alert").fadeIn(500);
     }
