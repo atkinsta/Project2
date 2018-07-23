@@ -124,8 +124,6 @@ module.exports = function (app) {
             where: {
                 username: req.params.username
             },
-            limit: 50,
-            order: [["createdAt", "DESC"]],
             include: [ //includes both snippets from that author and their comments, this will be useful later.
                 {
                     model: db.Snippet,
@@ -142,9 +140,10 @@ module.exports = function (app) {
                 {
                     model: db.Comment
                 }
-            ]
+            ],
+            // limit: [[db.Snippet, 50]],
+            order: [[{model: db.Snippet, as: "Snippets"}, "createdAt", "DESC"]]
         }).then(data => {
-            console.log(data);
             req.header = "Viewing " + data.username + "'s posts...";
             req.snippets = data.Snippets;
             next();
