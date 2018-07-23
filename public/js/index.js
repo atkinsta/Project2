@@ -87,9 +87,7 @@ $(document).ready(function() {
             .then(function(data) {
                 window.location.replace(data);
             })
-            .catch(function(err) {
-                handleLoginErr(err, "Invalid username or password.");
-            });
+            .catch(handleLoginErr("Invalid username or password."));
     });
 
     // signup form
@@ -125,9 +123,7 @@ $(document).ready(function() {
                     window.location.replace(data);
                 }
             })
-            .catch(function(err) {
-                handleLoginErr("That username is taken!");
-            });
+            .catch(handleLoginErr("That username is taken!"));
     });
 
     function handleLoginErr(text) {
