@@ -23,7 +23,16 @@ module.exports = function(app) {
             },
             include: [ //includes both snippets from that author and their comments, this will be useful later.
                 {
-                    model: db.Snippet
+                    model: db.Snippet,
+                    include: [
+                        { model: db.Comment, 
+                            include: {
+                                model: db.User,
+                                attributes: {
+                                    exclude: ["fullName", "password"]}
+                            } 
+                        }
+                    ]
                 },
                 {
                     model: db.Comment

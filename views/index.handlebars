@@ -1,11 +1,11 @@
 {{!-- modal --}}
-    
+
 <div class="modal" tabindex="-1" role="dialog" id="makeSnippetModal">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content cardpost">
             <div class="modal-header">
                 <h5 class="modal-title">Post a Snippet</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close buttonstyle" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -38,71 +38,102 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
+                <button id="submitSnippet" class="btn btn-light float-right buttonstyle">Submit</button>
 
-                <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                <button id="close" type="button" class="btn btn-warning buttonstyle" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+{{!-- end modal --}}
 
-    
- {{!-- Floating Sidebar --}}
-        
-<div class="sidebar">
-    
-    {{!-- <h5 class="userField">{{this.username}}</h5> 
-    --}}
-        
-    <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
-        
-</div>
-
-
-<div class="container">
+<div class="container ">
     <div class="row">
 
+        {{!-- floating Sidebar --}}
+        <div class="col-md-4 side">
+            <div class="sidebar cardbody">
+
+                {{!-- Insert Logged in user name --}}
+                <h3 class="username trending">Welcome: {{user.username}} !</h3>
+
+                <button id="makeSnippet" type="button" class="btn btn-info btn-lg buttonstyle" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+                <br>
+                <br>
+
+                {{!-- Show Trending languages --}}
+                <div>
+                <h4 class="trending">Trending Languages:</h4>
+                    {{#each trending}}
+                        <h5><em><a href="/snippets/{{this}}"> {{this}} </a></em></h5>
+                        <hr>
+                    {{/each}}
+                </div>
+
+                {{!-- Dropdown menu all Languages--}}
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle buttonstyle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-code"></i> All Languages
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item langSelect" value="java" type="button">Java</button>
+                        <button class="dropdown-item langSelect" value="cpp" type="button">C++</button>
+                        <button class="dropdown-item langSelect" value="python" type="button">Python</button>
+                        <button class="dropdown-item langSelect" value="csharp" type="button">C#</button>
+                        <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
+                        <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
+                        <button class="dropdown-item langSelect" value="json" type="button">JSON</button>
+                    </div>
+                </div>
+
+
+            </div>
+            
+        </div>
+
         {{!-- Snippet Cards --}}
-        <div class="col-md-12 snippets">
-
-
+        <div class="col-md-8 snippets">
             {{#each snippets}}
-            <div class="card w-75" >
-                <div class="card-body">
+            <div class="card cardbody">
+                <div class="card-body ">
                     <h5 class="card-title">
                         {{this.title}}
                     </h5>
-
+                    
                     <h6 class="card-subtitle mb-2 text-muted">
-                        {{this.User.username}}
+                        <a href="/users/{{this.User.username}}"> {{this.User.username}}</a>
                     </h6>
 
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
-                    <p class="card-text text-muted">{{language}}</p>
-                    <p class="card-text" id="snippet-description">{{description}}</p>
+                    <p class="card-text text-muted">Language: <a href="/snippets/{{language}}"> {{language}} </a></p>
+                    <p class="card-text" id="snippet-description">Description: {{description}}</p>
+
+                    <hr>
 
                     <form class="commentForm">
                         <div class="form-group commentFormText">
                             <label for="commentText">Comment</label>
                             <input type="text" class="form-control commentText" name="comment">
                         </div>
-                        <button class="btn btn-warning submitComment" data-id={{this.id}}>Comment</button>
+                        <button class="btn btn-warning submitComment buttonstyle" data-id={{this.id}}>Comment</button>
                     </form>
-
 
                     <br>
                     <div class="comments" id={{this.id}}>
 
                         {{!-- JSON rendered on load --}} {{#each this.Comments}}
-                        <p>{{comment}} - - {{username}}</p>
+                        <p>{{comment}} - - <a href="/users/{{username}}"> {{username}}</a></p>
                         {{/each}} {{!-- New comments will append here --}}
-
 
                     </div>
                 </div>
 
             </div>
             {{/each}}
+
         </div>
     </div>
+
+</div>

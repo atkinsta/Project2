@@ -3,27 +3,28 @@
 }
 body {
   background-image: url("http://ironrocksolutions.com/wp-content/uploads/2016/07/background-2462436_1920.jpg");
-  height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 .col-8.offset-2.form {
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
   color: whitesmoke;
 }
+
+
+
 .card {
-  margin: 15px auto;
-  background-color: rgb(60, 71, 80);
+  margin-bottom: 15px;
+  background-color: rgba(50, 97, 129, 0.5);
   color: whitesmoke;
   border-radius: 25px;
 }
 
 .sidebar {
   position: fixed;
-  top: 50%;
-  left: 5%;
   padding: 2%;
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
@@ -41,19 +42,14 @@ body {
 .title {
   color: white;
 }
-.snippets {
-  width: 90%;
-  padding: 5px;
-  margin: 0px;
-  overflow: auto;
-}
+
 #comments {
   color: rgb(202, 144, 58);
   width: 80%;
   border-radius: 25px;
 }
 .col-md-6.login {
-  background-color: rgb(60, 71, 80);
+  /* background-color: rgba(50, 97, 129, 0.623); */
   border-radius: 25px;
   padding: 20px;
   color: whitesmoke;
@@ -63,7 +59,6 @@ body {
 }
 #login-title {
   text-align: center;
-  font-family: "Permanent Marker", cursive;
   font-size: 30px;
 }
 #signup-title {
@@ -80,12 +75,10 @@ body {
 
 /* scrolling comments box */
 .comments {
-  height: 200px;
+  max-height: 200px;
   overflow-x: scroll;
 }
-#dropdownMenu2 {
-  margin-right: 10px;
-}
+
 #bottom {
   margin-top: 50px;
   height: 40px;
@@ -93,6 +86,8 @@ body {
 
 nav {
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
 }
 .codeBlock.language-javascript {
   color: white;
@@ -101,42 +96,94 @@ nav {
   margin: 20%;
 }
 
-
 /* Menu Bar */
+#bottom,.navbar{
+box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.61);
+}
+/* .col-md-6{
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.61);
+} */
+
 #dropdownMenu2{
-  margin-right: 10px;
   font-size: 20px;
-  text-shadow: 1px 1px 10px black;
+  /* text-shadow: 1px 1px 10px black; */
 }
 
 #bar{
   color:white;
   font-size: 20px;
-  text-shadow: 1px 1px 10px black;
+  text-shadow: 2px 2px 10px black;
 }
 .navbar-brand{
-  font-size:28px;
-  font-family: "Permanent Marker", cursive;
+  font-size:36px;
+ line-height: 46px;
+  font-family: 'Gugi', cursive;
   text-shadow: 1px 1px 10px black;
 }
 
 .navbar{
-  background-color: rgb(60, 71, 80) !important;
+  background-color: rgb(72, 99, 121) !important;
+
 }
 
 /* Footer */
 #bottom{
-  margin-top: 50px;
+  margin-top: 80px;
   height: 40px;
-  position: relative;
-  bottom: -100px;  
+  background-color:  rgb(72, 99, 121);
+  
 }
 
-.container{
-  width: 80%;
-  margin-left: 20%;
+/* body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #FFCC00;
 }
+
+html {
+  height: 100%;
+} */
+
+/* .snippetContainer{
+  width: 100%;
+  margin-left: 20%;
+} */
 
 .btn.btn-info.btn-lg {
-  margin: auto;
+  margin: 10px auto;
+}
+
+.side {
+  text-align: center
+}
+
+.trending {
+  color: whitesmoke;
+  text-shadow: 2px 2px 1px black;
+  letter-spacing: 1px;
+}
+/* Snippet Cards, Snippet Post Button*/
+.cardbody{
+  background-color: rgba(50, 97, 129, 0.5);
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.61);
+}
+/* Post a Snippets Card */
+.cardpost{
+  background-color: rgba(151, 171, 184, 0.904);
+  
+}
+
+.logo{
+  font-family: 'Gugi', cursive;
+  text-shadow: 2px 2px 10px black;
+}
+
+.buttonstyle{
+  box-shadow: -5px -5px 3px rgba(53, 52, 52, 0.514);
+}
+
+a {
+  color: #fe9800;
+  text-shadow: 2px 2px 1px black;
 }
