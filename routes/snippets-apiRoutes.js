@@ -40,7 +40,8 @@ module.exports = function (app) {
                 },
                 { model: db.Comment, include: [db.User] }]
         }).then(language => {
-            res.json(language);
+            // res.json(language);
+            res.render("index",{snippets:language});
         });
     });
 
