@@ -86,7 +86,7 @@ module.exports = function (app) {
         db.Snippet.findAll({
             include: [{ all: true }]
         }).then(data => {
-            req.header = "Viewing all posts";
+            req.header = "Viewing all posts...";
             req.snippets = data;
             next();
         });
@@ -107,7 +107,7 @@ module.exports = function (app) {
                 },
                 { model: db.Comment, include: [db.User] }]
         }).then(language => {
-            req.header = "Viewing %s posts...";
+            req.header = "Viewing " + req.params.language + " posts...";
             req.snippets = language; 
             next();
         });
@@ -139,7 +139,7 @@ module.exports = function (app) {
             ]
         }).then(data => {
             console.log(data);
-            req.header = "Viewing %s's posts...", data.username;
+            req.header = "Viewing " + data.username + "'s posts...";
             req.snippets = data.Snippets;
             next();
         });
