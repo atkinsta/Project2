@@ -47,31 +47,6 @@
 </div>
 {{!-- end modal --}}
 
-
-
-    
-    <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-code"></i> Languages
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-           <button class="dropdown-item langSelect" value = "java" type="button">Java</button>
-           <button class="dropdown-item langSelect" value="cpp"    type="button">C++</button>
-           <button class="dropdown-item langSelect" value="csharp"  type="button">C#</button>
-           <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
-           <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
-           <button class="dropdown-item langSelect" value="json" type="button">JSON</button>
-         </div>
-        </div>
-      </li>
-        <br><br>
-
-    <h5 class="userField">{{this.user}}</h5>
-
-
-
-
 <div class="container ">
     <div class="row">
 
@@ -113,18 +88,18 @@
 
 
             </div>
+            
         </div>
 
         {{!-- Snippet Cards --}}
         <div class="col-md-8 snippets">
-
             {{#each snippets}}
             <div class="card cardbody">
                 <div class="card-body ">
                     <h5 class="card-title">
                         {{this.title}}
                     </h5>
-
+                    
                     <h6 class="card-subtitle mb-2 text-muted">
                         {{this.User.username}}
                     </h6>
@@ -144,23 +119,19 @@
                         <button class="btn btn-warning submitComment buttonstyle" data-id={{this.id}}>Comment</button>
                     </form>
 
-
                     <br>
                     <div class="comments" id={{this.id}}>
 
-                        {{!-- JSON rendered on load --}} 
-                        {{#each this.Comments}}
+                        {{!-- JSON rendered on load --}} {{#each this.Comments}}
                         <p>{{comment}} - - {{username}}</p>
-                        {{/each}} 
-                        {{!-- New comments will append here --}}
-
+                        {{/each}} {{!-- New comments will append here --}}
 
                     </div>
                 </div>
 
             </div>
             {{/each}}
-           
+
         </div>
     </div>
 
