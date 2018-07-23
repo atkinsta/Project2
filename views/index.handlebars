@@ -63,7 +63,7 @@
 
                 {{!-- Show Trending languages --}}
                 <div>
-                <h4 class="trending">Trending:</h4>
+                <h4 class="trending">Trending Languages:</h4>
                     {{#each trending}}
                         <h5><em><a href="/snippets/{{this}}"> {{this}} </a></em></h5>
                         <hr>
@@ -72,13 +72,14 @@
 
                 {{!-- Dropdown menu all Languages--}}
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                    <button class="btn btn-light dropdown-toggle buttonstyle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-code"></i> Languages
+                        <i class="fas fa-code"></i> All Languages
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <button class="dropdown-item langSelect" value="java" type="button">Java</button>
                         <button class="dropdown-item langSelect" value="cpp" type="button">C++</button>
+                        <button class="dropdown-item langSelect" value="python" type="button">Python</button>
                         <button class="dropdown-item langSelect" value="csharp" type="button">C#</button>
                         <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
                         <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
