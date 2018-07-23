@@ -7,6 +7,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 .col-8.offset-2.form {
   background-color: rgb(60, 71, 80);
@@ -115,20 +116,22 @@ box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.61);
   text-shadow: 1px 1px 10px black;
 }
 .navbar-brand{
-  font-size:28px;
-  font-family: "Permanent Marker", cursive;
+  font-size:36px;
+ line-height: 46px;
+  font-family: 'Gugi', cursive;
   text-shadow: 1px 1px 10px black;
 }
 
 .navbar{
-  background-color: rgb(60, 71, 80) !important;
+  background-color: rgb(72, 99, 121) !important;
+
 }
 
 /* Footer */
 #bottom{
   margin-top: 80px;
   height: 40px;
-  background-color: rgb(60, 71, 80);
+  background-color:  rgb(72, 99, 121);
   
 }
 
