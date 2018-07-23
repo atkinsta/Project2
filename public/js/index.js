@@ -1,11 +1,7 @@
 $(document).ready(function () {
     $(document).on("click", "#home", function () {
         location.href = "/home";
-    });
-
-    $.get("/api/users/:username",function(data) {
-        $(".userField").html(data.username);
-    });
+    });   
 
     $(document).on("click", "#submitSnippet", function() {
         event.preventDefault();
@@ -33,7 +29,7 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (data) {
             console.log(data);
-            
+            $(".snippets").html(data);
         });
     });
 
