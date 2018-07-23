@@ -80,15 +80,18 @@
             <div class="sidebar cardbody">
 
                 {{!-- Insert Logged in user name --}}
-                <h3 class="username">Welcome: {{user.username}} !</h3>
+                <h3 class="username trending">Welcome: {{user.username}} !</h3>
 
                 <button id="makeSnippet" type="button" class="btn btn-info btn-lg buttonstyle" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+                <br>
+                <br>
 
                 {{!-- Show Trending languages --}}
-                <div class="trending">
-                <h4>Trending:</h4>
+                <div>
+                <h4 class="trending">Trending:</h4>
                     {{#each trending}}
-                        <h5><a href="/snippets/{{this}}"> {{this}} </a></h5>
+                        <h5><em><a href="/snippets/{{this}}"> {{this}} </a></em></h5>
+                        <hr>
                     {{/each}}
                 </div>
 

@@ -159,10 +159,9 @@ html {
 }
 
 .trending {
-  background-color: orange;
-  border-radius: .3rem;
-  width: 70%;
-  margin: 0 auto;
+  color: whitesmoke;
+  text-shadow: 2px 2px 1px black;
+  letter-spacing: 1px;
 }
 /* Snippet Cards, Snippet Post Button*/
 .cardbody{
@@ -181,5 +180,10 @@ html {
 }
 
 .buttonstyle{
-  box-shadow: inset 1px 1px 5px 2px  rgba(53, 52, 52, 0.514);
+  box-shadow: -5px -5px 3px rgba(53, 52, 52, 0.514);
+}
+
+a {
+  color: #fe9800;
+  text-shadow: 2px 2px 1px black;
 }
