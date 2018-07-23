@@ -76,7 +76,6 @@ body {
 /* scrolling comments box */
 .comments {
   max-height: 200px;
-  overflow-x: scroll;
 }
 
 #bottom {
