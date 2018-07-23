@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="../../styles/prism.css">
+  <link rel="icon" href="../../images/flavicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Aldrich|Audiowide|Gugi|Orbitron|Prosto+One" rel="stylesheet">
   <script src="../../js/index.js"></script>
   <script src="../../js/prism.js"></script>
@@ -22,43 +23,18 @@
 <body> 
 {{!--MAIN TITLE BAR --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#" id="home">Snippets </a>
+  <a class="navbar-brand" href="/home" id="home">Snippets </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
     aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav" id="bar">
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="#"></a>
-      </li>
-      <li>
-        {{!-- Dropdown menu --}}
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-code"></i> Languages
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-           <button class="dropdown-item langSelect" value = "java" type="button">Java</button>
-           <button class="dropdown-item langSelect" value="cpp"    type="button">C++</button>
-           <button class="dropdown-item langSelect" value="csharp"  type="button">C#</button>
-           <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
-           <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
-           <button class="dropdown-item langSelect" value="json" type="button">JSON</button>
-         </div>
-        </div>
-      </li>
-      <li>
-        {{!--
-        <div class="collapse navbar-collapse"> --}}
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="logoff">
-              <i class="fas fa-key"></i>Log Off
-              <span class="sr-only">(current)</span>
-            </a>
-            {{!-- </div> --}}
+    <ul class="navbar-nav ml-auto" id="bar">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="logoff">
+            <i class="fas fa-key"></i>Log Off
+            <span class="sr-only">(current)</span>
+          </a>
         </li>
     </ul>
   </div>
