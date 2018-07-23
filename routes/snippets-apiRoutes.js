@@ -21,9 +21,9 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex);
+    app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex); //Home render
 
-    app.get("/snippets/:language", isAuthenticated, findSnippetsbyLanguage, findTop, renderIndex);
+    app.get("/snippets/:language", isAuthenticated, findSnippetsbyLanguage, findTop, renderIndex); //Renders only that language
 
     app.post("/api/snippets", (req, res) => {
         db.Snippet.create({
