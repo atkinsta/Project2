@@ -2,10 +2,10 @@
 
 <div class="modal" tabindex="-1" role="dialog" id="makeSnippetModal">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content cardpost">
             <div class="modal-header">
                 <h5 class="modal-title">Post a Snippet</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close buttonstyle" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -38,9 +38,9 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="submitSnippet" class="btn btn-light float-right">Submit</button>
+                <button id="submitSnippet" class="btn btn-light float-right buttonstyle">Submit</button>
 
-                <button id="close" type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                <button id="close" type="button" class="btn btn-warning buttonstyle" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -63,13 +63,13 @@
 
         {{!-- floating post button --}}
         <div class="col-md-3">
-            <div class="sidebar">
+            <div class="sidebar cardbody">
 
                 {{!--
                 <h5 class="userField">{{this.username}}</h5>
                 --}}
 
-                <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+                <button id="makeSnippet" type="button" class="btn btn-info btn-lg buttonstyle" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
 
             </div>
         </div>
@@ -79,8 +79,8 @@
 
 
             {{#each snippets}}
-            <div class="card w-75">
-                <div class="card-body">
+            <div class="card w-75 cardbody">
+                <div class="card-body ">
                     <h5 class="card-title">
                         {{this.title}}
                     </h5>
@@ -99,7 +99,7 @@
                             <label for="commentText">Comment</label>
                             <input type="text" class="form-control commentText" name="comment">
                         </div>
-                        <button class="btn btn-warning submitComment" data-id={{this.id}}>Comment</button>
+                        <button class="btn btn-warning submitComment buttonstyle" data-id={{this.id}}>Comment</button>
                     </form>
 
 
