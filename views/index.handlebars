@@ -49,13 +49,29 @@
 
 {{!-- Floating Sidebar --}} {{!--
 <div class="sidebar">
+    
+    {{!-- <h5 class="userField">{{this.username}}</h5> 
+    --}}
+    <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-code"></i> Languages
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+           <button class="dropdown-item langSelect" value = "java" type="button">Java</button>
+           <button class="dropdown-item langSelect" value="cpp"    type="button">C++</button>
+           <button class="dropdown-item langSelect" value="csharp"  type="button">C#</button>
+           <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
+           <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
+           <button class="dropdown-item langSelect" value="json" type="button">JSON</button>
+         </div>
+        </div>
+      </li>
+        <br><br>
 
     <h5 class="userField">{{this.username}}</h5>
 
-
-    <button id="makeSnippet" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
-
-</div> --}}
+</div> 
 
 
 <div class="container ">
@@ -76,7 +92,6 @@
 
         {{!-- Snippet Cards --}}
         <div class="col-md-9 snippets">
-
 
             {{#each snippets}}
             <div class="card w-75">
@@ -106,9 +121,11 @@
                     <br>
                     <div class="comments" id={{this.id}}>
 
-                        {{!-- JSON rendered on load --}} {{#each this.Comments}}
+                        {{!-- JSON rendered on load --}} 
+                        {{#each this.Comments}}
                         <p>{{comment}} - - {{username}}</p>
-                        {{/each}} {{!-- New comments will append here --}}
+                        {{/each}} 
+                        {{!-- New comments will append here --}}
 
 
                     </div>
@@ -116,6 +133,7 @@
 
             </div>
             {{/each}}
+           
         </div>
     </div>
 

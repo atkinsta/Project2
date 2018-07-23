@@ -3,7 +3,6 @@
 }
 body {
   background-image: url("http://ironrocksolutions.com/wp-content/uploads/2016/07/background-2462436_1920.jpg");
-  height: 100%; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -96,7 +95,6 @@ nav {
 .btn.btn-info.btn-lg {
   margin: 20%;
 }
-
 
 /* Menu Bar */
 #bottom,.navbar{
