@@ -119,18 +119,19 @@ $(document).ready(function() {
         })
             .then(function(data) {
                 if (data.errors) {
-                    handleLoginErr("That username is already taken!");
+                    handleLoginErr(data.errors, "That username is already taken!");
                 }
                 else {
                     window.location.replace(data);
                 }
             })
             .catch(function(err) {
-                handleLoginErr("That username is taken!");
+                handleLoginErr(err, "That username is taken!")
             });
     });
 
-    function handleLoginErr(text) {
+    function handleLoginErr(err, text) {
+        console.log(err);
         $("#alert .msg").text(text);
         $("#alert").fadeIn(500);
     }
