@@ -87,6 +87,8 @@ body {
 
 nav {
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
 }
 .codeBlock.language-javascript {
   color: white;

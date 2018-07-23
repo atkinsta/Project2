@@ -134,6 +134,7 @@ module.exports = function (app) {
     }
 
     function renderIndex(req, res) {
+        console.log("user:",req.user, "\n trending:",req.trending);
         res.render("index", {
             snippets: req.snippets,
             trending: req.trending,
