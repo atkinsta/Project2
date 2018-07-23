@@ -29,34 +29,22 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/api/snippets/:username", (req, res) => {
-        //get all snippets by author
-        db.User.findAll({
-            attributes: {
-                exclude: [fullName, password]
-            },
-            where: {
-                username: req.params.username,
-
-            },
-            include: [ //includes both snippets from that author and their comments, this will be useful later.
-                {
-                    model: db.Snippet, include: [
-                        { model: db.Comment, include: [db.User] }
-                    ]
-                }
-            ]
-        }).then(author => {
-            res.json(author);
-        });
-    });
 
     app.get("/api/snippets/:language", (req, res) => {
         //get all snippets by langage
+        var language = req.params.language;
         db.Snippet.findAll({
             where: {
-                language: req.params.language
-            }
+                language: language
+            },
+            include: [
+                {
+                    model: db.User,
+                    attributes: {
+                        exclude: ["fullName", "password"]
+                    }
+                },
+                { model: db.Comment, include: [db.User] }]
         }).then(language => {
             res.json(language);
         });
@@ -74,6 +62,7 @@ module.exports = function (app) {
         });
     });
 
+    // Post comments
     app.post("/api/comments", (req, res) => {
         db.Comment.create({
             comment: req.body.comment,
@@ -82,6 +71,13 @@ module.exports = function (app) {
             SnippetId: req.body.SnippetId
         }).then(newComment => {
             res.json(newComment);
+        });
+    });
+
+    // get comments
+    app.get("/api/comments", (req,res) => {
+        db.Comment.findAll({}).then (allComments => {
+            res.json(allComments);
         });
     });
 
