@@ -181,5 +181,6 @@ html {
 }
 
 .buttonstyle{
-  box-shadow: inset 1px 1px 5px 2px  rgba(53, 52, 52, 0.514);
+  box-shadow: 2px 2px 5px 3px  rgba(58, 57, 57, 0.514);
+  border-color: rgba(0, 0, 0, 0.445);
 }
