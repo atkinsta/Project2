@@ -88,7 +88,7 @@ module.exports = function (app) {
             limit: 50,
             order: [["createdAt", "DESC"]]
         }).then(data => {
-            req.header = "Viewing all posts...";
+            req.header = "Viewing most recent snippets posts...";
             req.snippets = data;
             next();
         });
@@ -111,7 +111,7 @@ module.exports = function (app) {
                 },
                 { model: db.Comment, include: [db.User] }]
         }).then(language => {
-            req.header = "Viewing " + req.params.language + " posts...";
+            req.header = "Viewing " + req.params.language + " snippets...";
             req.snippets = language; 
             next();
         });
@@ -144,7 +144,7 @@ module.exports = function (app) {
             // limit: [[db.Snippet, 50]],
             order: [[{model: db.Snippet, as: "Snippets"}, "createdAt", "DESC"]]
         }).then(data => {
-            req.header = "Viewing " + data.username + "'s posts...";
+            req.header = "Viewing " + data.username + "'s snippets...";
             req.snippets = data.Snippets;
             next();
         });
