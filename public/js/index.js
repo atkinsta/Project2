@@ -57,7 +57,7 @@ $(document).ready(function() {
             $(".commentText").val("");
 
             var html =
-        "<p>" + newComment.comment + " - - " + newComment.username + "</p>";
+        "<p>" + newComment.comment + " - - " + "<a href='/users/'" + newComment.username + "'>" + newComment.username + "</a></p>";
             $("#" + newComment.SnippetId + "").append(html);
         });
     });
