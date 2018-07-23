@@ -3,14 +3,11 @@ $(document).ready(function () {
         location.href = "/home";
     });
 
-<<<<<<< HEAD
     $(document).on("click", "#logoff", function () {
         location.href = "/logout";
     });
 
-=======
     // POST to submit new snippet
->>>>>>> cd67d66eccd348ae8d7a6770d2178ef348aefa86
     $(document).on("click", "#submitSnippet", function () {
         event.preventDefault();
         let newSnippet = {
