@@ -25,6 +25,8 @@ module.exports = function (app) {
 
     app.get("/snippets/:language", isAuthenticated, findSnippetsbyLanguage, findTop, renderIndex); //Renders only that language
 
+    app.get("/users/:username", isAuthenticated, findByUser, findTop, renderIndex); //Renders user
+
     app.post("/api/snippets", (req, res) => {
         db.Snippet.create({
             title: req.body.title,
@@ -84,6 +86,7 @@ module.exports = function (app) {
         db.Snippet.findAll({
             include: [{ all: true }]
         }).then(data => {
+            req.header = "Viewing all posts";
             req.snippets = data;
             next();
         });
@@ -104,7 +107,40 @@ module.exports = function (app) {
                 },
                 { model: db.Comment, include: [db.User] }]
         }).then(language => {
+            req.header = "Viewing %s posts...";
             req.snippets = language; 
+            next();
+        });
+    }
+
+    function findByUser (req, res, next) {
+        db.User.findOne({
+            attributes: {
+                exclude: ["password"]},
+            where: {
+                username: req.params.username
+            },
+            include: [ //includes both snippets from that author and their comments, this will be useful later.
+                {
+                    model: db.Snippet,
+                    include: [
+                        { model: db.Comment, 
+                            include: {
+                                model: db.User,
+                                attributes: {
+                                    exclude: ["fullName", "password"]}
+                            } 
+                        }
+                    ]
+                },
+                {
+                    model: db.Comment
+                }
+            ]
+        }).then(data => {
+            console.log(data);
+            req.header = "Viewing %s's posts...", data.username;
+            req.snippets = data.Snippets;
             next();
         });
     }
@@ -134,8 +170,9 @@ module.exports = function (app) {
         });
     }
 
-    function renderIndex(req, res) {
+    function renderIndex(req, res, string) {
         res.render("index", {
+            header: req.header,
             snippets: req.snippets,
             trending: req.trending,
             user: req.user
