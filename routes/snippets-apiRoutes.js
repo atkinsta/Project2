@@ -21,34 +21,9 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/home", isAuthenticated, (req, res) => {
-        db.Snippet.findAll({
-            include: [{ all: true }]
-        }).then(data => {
-            res.render("index", { snippets: data });
-        });
-    });
+    app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex); //Home render
 
-
-    app.get("/api/snippets/:language", (req, res) => {
-        //get all snippets by langage
-        var language = req.params.language;
-        db.Snippet.findAll({
-            where: {
-                language: language
-            },
-            include: [
-                {
-                    model: db.User,
-                    attributes: {
-                        exclude: ["fullName", "password"]
-                    }
-                },
-                { model: db.Comment, include: [db.User] }]
-        }).then(language => {
-            res.json(language);
-        });
-    });
+    app.get("/snippets/:language", isAuthenticated, findSnippetsbyLanguage, findTop, renderIndex); //Renders only that language
 
     app.post("/api/snippets", (req, res) => {
         db.Snippet.create({
@@ -104,4 +79,66 @@ module.exports = function (app) {
             res.end();
         });
     });
+
+    function findSnippets(req, res, next) {
+        db.Snippet.findAll({
+            include: [{ all: true }]
+        }).then(data => {
+            req.snippets = data;
+            next();
+        });
+    }
+
+    function findSnippetsbyLanguage(req, res, next) {
+        var language = req.params.language;
+        db.Snippet.findAll({
+            where: {
+                language: language
+            },
+            include: [
+                {
+                    model: db.User,
+                    attributes: {
+                        exclude: ["fullName", "password"]
+                    }
+                },
+                { model: db.Comment, include: [db.User] }]
+        }).then(language => {
+            req.snippets = language; 
+            next();
+        });
+    }
+
+    function findTop(req, res, next) {
+        db.Snippet.findAll({}).then(data => {
+            
+            const dataMap = {};
+            data.forEach(post => {
+                dataMap[post.language] = dataMap[post.language] + 1 || 1;
+            });
+            const sortable = [];
+            for (var language in dataMap) {
+                sortable.push([language, dataMap[language]]);
+            }
+            sortable.sort(function(a, b) {
+                return b[1] - a[1];
+            });
+            
+            const langArray = [];
+            sortable.forEach(lang => {
+                langArray.push(lang[0]);
+            });
+            
+            req.trending = langArray;
+            next();
+        });
+    }
+
+    function renderIndex(req, res) {
+        res.render("index", {
+            snippets: req.snippets,
+            trending: req.trending,
+            user: req.user
+        });
+    }
 };
