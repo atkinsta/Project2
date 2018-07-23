@@ -84,7 +84,9 @@ module.exports = function (app) {
 
     function findSnippets(req, res, next) {
         db.Snippet.findAll({
-            include: [{ all: true }]
+            include: [{ all: true }],
+            limit: 50,
+            order: [["createdAt", "DESC"]]
         }).then(data => {
             req.header = "Viewing all posts...";
             req.snippets = data;
@@ -98,6 +100,8 @@ module.exports = function (app) {
             where: {
                 language: language
             },
+            limit: 50,
+            order: [["createdAt", "DESC"]],
             include: [
                 {
                     model: db.User,
@@ -120,6 +124,8 @@ module.exports = function (app) {
             where: {
                 username: req.params.username
             },
+            limit: 50,
+            order: [["createdAt", "DESC"]],
             include: [ //includes both snippets from that author and their comments, this will be useful later.
                 {
                     model: db.Snippet,
