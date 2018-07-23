@@ -21,13 +21,7 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/home", isAuthenticated, (req, res) => {
-        db.Snippet.findAll({
-            include: [{ all: true }]
-        }).then(data => {
-            res.render("index", { snippets: data });
-        });
-    });
+    app.get("/home", isAuthenticated, findSnippets, findTop, renderIndex);
 
 
     app.get("/api/snippets/:language", (req, res) => {
@@ -124,4 +118,45 @@ module.exports = function (app) {
             res.end();
         });
     });
+
+    function findSnippets(req, res, next) {
+        db.Snippet.findAll({
+            include: [{ all: true }]
+        }).then(data => {
+            req.snippets = data;
+            next();
+        });
+    }
+
+    function findTop(req, res, next) {
+        db.Snippet.findAll({}).then(data => {
+            
+            const dataMap = {};
+            data.forEach(post => {
+                dataMap[post.language] = dataMap[post.language] + 1 || 1;
+            });
+            const sortable = [];
+            for (var language in dataMap) {
+                sortable.push([language, dataMap[language]]);
+            }
+            sortable.sort(function(a, b) {
+                return b[1] - a[1];
+            });
+            
+            const langArray = [];
+            sortable.forEach(lang => {
+                langArray.push(lang[0]);
+            });
+            next();
+            req.trending = dataMap;
+        });
+    }
+
+    function renderIndex(req, res) {
+        res.render("index", {
+            snippets: req.snippets,
+            trending: req.trending,
+            user: req.user
+        });
+    }
 };
