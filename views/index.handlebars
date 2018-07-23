@@ -54,29 +54,31 @@
             <div class="sidebar cardbody">
 
                 {{!-- Insert Logged in user name --}}
-                <h3 class="username">Welcome: {{user.username}} !</h3>
+                <h3 class="username trending">Welcome: {{user.username}} !</h3>
 
                 <button id="makeSnippet" type="button" class="btn btn-info btn-lg buttonstyle" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
+                <br>
+                <br>
 
                 {{!-- Show Trending languages --}}
-                <div class="trending">
-                <h5>Trending:</h5>
-                <ol>
+                <div>
+                <h4 class="trending">Trending Languages:</h4>
                     {{#each trending}}
-                    <li>{{this}}</li>
+                        <h5><em><a href="/snippets/{{this}}"> {{this}} </a></em></h5>
+                        <hr>
                     {{/each}}
-                </ol>
                 </div>
 
                 {{!-- Dropdown menu all Languages--}}
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                    <button class="btn btn-light dropdown-toggle buttonstyle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fas fa-code"></i> Languages
+                        <i class="fas fa-code"></i> All Languages
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                         <button class="dropdown-item langSelect" value="java" type="button">Java</button>
                         <button class="dropdown-item langSelect" value="cpp" type="button">C++</button>
+                        <button class="dropdown-item langSelect" value="python" type="button">Python</button>
                         <button class="dropdown-item langSelect" value="csharp" type="button">C#</button>
                         <button class="dropdown-item langSelect" value="javascript" type="button">Javascript</button>
                         <button class="dropdown-item langSelect" value="css" type="button">CSS</button>
@@ -105,8 +107,10 @@
 
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
-                    <p class="card-text text-muted">Language: {{language}}</p>
+                    <p class="card-text text-muted">Language: <a href="/snippets/{{language}}"> {{language}} </a></p>
                     <p class="card-text" id="snippet-description">Description: {{description}}</p>
+
+                    <hr>
 
                     <form class="commentForm">
                         <div class="form-group commentFormText">
