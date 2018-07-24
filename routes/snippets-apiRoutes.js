@@ -72,7 +72,6 @@ module.exports = function (app) {
     });
 
     app.delete("/api/snippets/:id", (req, res) => {
-        console.log(req.params.id);
         //delete snippet where id = ?
         db.Snippet.destroy({
             where: {
