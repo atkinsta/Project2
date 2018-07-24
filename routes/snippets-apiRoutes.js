@@ -167,7 +167,8 @@ module.exports = function (app) {
             
             const langArray = [];
             sortable.forEach(lang => {
-                langArray.push(lang[0]);
+                if (langArray.length < 4)
+                    langArray.push(lang[0]);
             });
             
             req.trending = langArray;
