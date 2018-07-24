@@ -1,14 +1,14 @@
-$(document).ready(function() {
-    $(document).on("click", "#home", function() {
+$(document).ready(function () {
+    $(document).on("click", "#home", function () {
         location.href = "/home";
     });
 
-    $(document).on("click", "#logoff", function() {
+    $(document).on("click", "#logoff", function () {
         location.href = "/logout";
     });
 
     // POST to submit new snippet
-    $(document).on("click", "#submitSnippet", function() {
+    $(document).on("click", "#submitSnippet", function () {
         event.preventDefault();
         let newSnippet = {
             title: $("#title")
@@ -23,18 +23,18 @@ $(document).ready(function() {
             url: "/api/snippets",
             method: "POST",
             data: newSnippet
-        }).then(function() {
+        }).then(function () {
             location.reload();
         });
     });
 
     // GET to get filtered languages
-    $(document).on("click", ".langSelect", function() {
+    $(document).on("click", ".langSelect", function () {
         location.href = "/snippets/" + $(this).val();
     });
 
     // POST new comment on submitComment button click
-    $(document).on("click", ".submitComment", function() {
+    $(document).on("click", ".submitComment", function () {
         event.preventDefault();
 
         // Nav parent/children to get comment text for specific Snippet
@@ -53,11 +53,11 @@ $(document).ready(function() {
                 comment: commentText,
                 SnippetId: id
             }
-        }).then(function(newComment) {
+        }).then(function (newComment) {
             $(".commentText").val("");
 
             var html =
-        "<p>" + newComment.comment + " - - " + newComment.username + "</p>";
+                "<p>" + newComment.comment + " - - " + "<a href='/users/'" + newComment.username + "'>" + newComment.username + "</a></p>";
             $("#" + newComment.SnippetId + "").append(html);
         });
     });
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
     // login form
     var loginForm = $("form.login");
-    loginForm.on("submit", function(event) {
+    loginForm.on("submit", function (event) {
         event.preventDefault();
         var newLogin = {
             username: $("input#userField")
@@ -94,17 +94,17 @@ $(document).ready(function() {
             method: "POST",
             data: newLogin
         })
-            .then(function(data) {
+            .then(function (data) {
                 window.location.replace(data);
             })
-            .catch(function(err) {
+            .catch(function (err) {
                 handleLoginErr(err, "Invalid username or password.");
             });
     });
 
     // signup form
     var signupForm = $("form.signup");
-    signupForm.on("submit", function(event) {
+    signupForm.on("submit", function (event) {
         event.preventDefault();
         var newUser = {
             username: $("input#newUsername")
@@ -127,7 +127,7 @@ $(document).ready(function() {
             method: "POST",
             data: newUser
         })
-            .then(function(data) {
+            .then(function (data) {
                 if (data.errors) {
                     handleLoginErr(data.errors, "That username is already taken!");
                 }
@@ -135,8 +135,8 @@ $(document).ready(function() {
                     window.location.replace(data);
                 }
             })
-            .catch(function(err) {
-                handleLoginErr(err, "That username is taken!")
+            .catch(function (err) {
+                handleLoginErr(err, "That username is taken!");
             });
     });
 
@@ -147,7 +147,7 @@ $(document).ready(function() {
     }
 
     // Open snippet modal
-    $(document).on("click", "#makeSnippet", function() {
+    $(document).on("click", "#makeSnippet", function () {
         $("#makeSnippetModal").show();
     });
 });
