@@ -62,6 +62,16 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on("click", ".snipDelete", function() {
+        console.log($(this).val());
+        $.ajax({
+            url: "/api/snippets/" + $(this).val(),
+            method: "DELETE"
+        }).then(function(data) {
+            location.reload();
+        });
+    });
+
     // login form
     var loginForm = $("form.login");
     loginForm.on("submit", function(event) {

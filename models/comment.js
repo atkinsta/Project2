@@ -23,12 +23,15 @@ module.exports = function (sequelize, DataTypes) {
         Comment.belongsTo(models.Snippet, {
             foreignKey: {
                 allowNull: false
-            }
+            },
+            onDelete: "cascade",
+            hooks: true
         });
         Comment.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
-            }
+            },
+            onDelete: "cascade"
         });
     };
 
