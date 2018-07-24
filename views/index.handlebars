@@ -57,7 +57,7 @@
             <div class="sidebar cardbody">
 
                 {{!-- Insert Logged in user name --}}
-                <h3 class="username trending">Welcome: {{user.username}} !</h3>
+                <h3 class="username trending">Welcome: {{currentUser.username}} !</h3>
 
                 <button id="makeSnippet" type="button" class="btn btn-info btn-lg buttonstyle" data-toggle="modal" data-target="#makeSnippetModal">Post a snippet!</button>
                 <br>
@@ -108,7 +108,17 @@
                     <h6 class="card-subtitle mb-2 text-muted">
                         <a href="/users/{{this.User.username}}"> {{this.User.username}}</a>
                     </h6>
-
+                    {{#if (selfPost this.UserId @root.currentUser.id)}}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <button class="dropdown-item snipDelete" value="{{this.id}}">Delete</button>
+                                <button class="dropdown-item" href="#">Edit</button>
+                            </div>
+                        </div>
+                    {{/if}}
                     <pre><code class="language-{{language}} codeBlock">{{codeBlock}}</code></pre>
 
                     <p class="card-text text-muted">Language:

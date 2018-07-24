@@ -34,10 +34,12 @@ module.exports = function (sequelize, DataTypes) {
         Snippet.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
-            }
+            },
+            onDelete: "cascade"
         });
         Snippet.hasMany(models.Comment, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            hooks: true
         });
     };
 
