@@ -216,3 +216,7 @@ a {
 .snippetsContainer {
   margin-bottom: 50px;
 }
+
+::-webkit-scrollbar { 
+  display: none; 
+}
