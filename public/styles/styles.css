@@ -14,7 +14,9 @@ body {
   border-radius: 25px;
   color: whitesmoke;
 }
-
+.col-md-8.snippets{
+  margin-bottom: 10%;
+}
 
 
 .card {
