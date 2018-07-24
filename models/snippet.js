@@ -27,10 +27,13 @@ module.exports = function (sequelize, DataTypes) {
         description: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                max: 255
+            }
         }
     });
 
-    Snippet.associate = function(models) {
+    Snippet.associate = function (models) {
         Snippet.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
