@@ -22,6 +22,11 @@ app.use(passport.session());
 app.engine(
     "handlebars",
     exphbs({
+        helpers: {
+            selfPost: function(snipId, userId) {
+                return (snipId === userId);
+            }
+        },
         defaultLayout: "main"
     })
 );

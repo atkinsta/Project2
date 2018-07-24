@@ -167,7 +167,9 @@ module.exports = function (app) {
             
             const langArray = [];
             sortable.forEach(lang => {
-                langArray.push(lang[0]);
+                if (langArray.length < 4) {
+                    langArray.push(lang[0]);
+                }
             });
             
             req.trending = langArray;
@@ -180,7 +182,7 @@ module.exports = function (app) {
             header: req.header,
             snippets: req.snippets,
             trending: req.trending,
-            user: req.user
+            currentUser: req.user
         });
     }
 };

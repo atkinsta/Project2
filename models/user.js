@@ -25,10 +25,10 @@ module.exports = function (sequelize, DataTypes) {
     
     User.associate = function(models) {
         User.hasMany(models.Snippet, {
-            onDelete: "cascade"
+            onDelete: "CASCADE"
         });
         User.hasMany(models.Comment, {
-            onDelete: "cascade"
+            onDelete: "CASCADE"
         });
     };
 
