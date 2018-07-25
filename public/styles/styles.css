@@ -14,8 +14,9 @@ body {
   border-radius: 25px;
   color: whitesmoke;
 }
-
-
+.col-md-8.snippets {
+  margin-bottom: 10%;
+}
 
 .card {
   margin-bottom: 15px;
@@ -30,12 +31,7 @@ body {
   background-color: rgb(60, 71, 80);
   border-radius: 25px;
 }
-/* .sidebar-body {
-  width: 90%;
-  height: 700px;
-  background-color: rgb(60, 71, 80);
-  border-radius: 25px;
-} */
+
 .text {
   text-align: center;
   color: rgb(202, 144, 58);
@@ -50,7 +46,6 @@ body {
   border-radius: 25px;
 }
 .col-md-6.login {
-  /* background-color: rgba(50, 97, 129, 0.623); */
   border-radius: 25px;
   padding: 20px;
   color: whitesmoke;
@@ -99,48 +94,43 @@ nav {
 }
 
 /* Menu Bar */
-#bottom,.navbar{
-box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.61);
+#bottom,
+.navbar {
+  box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.61);
 }
-/* .col-md-6{
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.61);
-} */
 
-#dropdownMenu2{
+#dropdownMenu2 {
   font-size: 20px;
-  /* text-shadow: 1px 1px 10px black; */
 }
 
-#bar{
-  color:white;
+#bar {
+  color: white;
   font-size: 20px;
   text-shadow: 2px 2px 10px black;
 }
-.navbar-brand{
-  font-size:36px;
- line-height: 46px;
-  font-family: 'Gugi', cursive;
+.navbar-brand {
+  font-size: 36px;
+  line-height: 46px;
+  font-family: "Gugi", cursive;
   text-shadow: 1px 1px 10px black;
 }
 
-.navbar{
+.navbar {
   background-color: rgb(72, 99, 121) !important;
-
 }
 
 /* Footer */
-#bottom{
+#bottom {
   margin-top: 80px;
   height: 40px;
-  background-color:  rgb(72, 99, 121);
+  background-color: rgb(72, 99, 121);
   position: fixed;
-/* margin-left: auto;
-margin-right: auto; */
-left: 0;
-right: 0;
-bottom: 0;
-
-  
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.github_link {
+  margin-left: 40%;
 }
 
 body {
@@ -154,17 +144,12 @@ html {
   height: 100%;
 }
 
-/* .snippetContainer{
-  width: 100%;
-  margin-left: 20%;
-} */
-
 .btn.btn-info.btn-lg {
   margin: 10px auto;
 }
 
 .side {
-  text-align: center
+  text-align: center;
 }
 
 .trending {
@@ -172,24 +157,24 @@ html {
   text-shadow: 2px 2px 1px black;
   letter-spacing: 1px;
 }
+
 /* Snippet Cards, Snippet Post Button*/
-.cardbody{
+.cardbody {
   background-color: rgba(50, 97, 129, 0.5);
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.61);
 }
 /* Post a Snippets Card */
-.cardpost{
+.cardpost {
   background-color: rgba(151, 171, 184, 0.904);
-  
 }
 
-.logo{
-  font-family: 'Gugi', cursive;
+.logo {
+  font-family: "Gugi", cursive;
   text-shadow: 2px 2px 10px black;
 }
 
-.buttonstyle{
-  box-shadow: 2px 2px 5px 3px  rgba(58, 57, 57, 0.514);
+.buttonstyle {
+  box-shadow: 2px 2px 5px 3px rgba(58, 57, 57, 0.514);
 }
 
 a {
@@ -198,7 +183,7 @@ a {
 }
 
 /* header */
-.containerHeader{
+.containerHeader {
   margin-bottom: 15px;
   background-color: rgba(50, 97, 129, 0.5);
   color: whitesmoke;
